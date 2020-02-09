@@ -27,3 +27,6 @@ RUN /usr/local/bin/hugo version
 EXPOSE 1313
 RUN  hugo --minify
 #ENTRYPOINT ["/usr/local/bin/hugo", "server","--buildFuture", "--bind", "0.0.0.0"]
+
+FROM nginx:alpine
+COPY --from=0 /src/public/* /usr/share/nginx/html

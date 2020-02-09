@@ -14,4 +14,4 @@ jobs:
       run: sh build-docker.sh
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}
-        DOCKER_USER: jingjingxyk
+        DOCKER_USER: ${{secrets.docker_user}}

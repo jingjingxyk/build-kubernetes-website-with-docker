@@ -15,3 +15,5 @@ jobs:
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}
         DOCKER_USER: ${{secrets.docker_user}}
+        DOCKER_IMAGE: ${{secrets.docker_image}}
+

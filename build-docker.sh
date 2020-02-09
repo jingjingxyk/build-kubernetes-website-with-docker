@@ -1,4 +1,5 @@
 #!/bin/env sh 
+
 HUGO_VERSION='0.64.0'
 TIME=`date "+%Y%m%d"`
 VERSION=${TIME}

@@ -29,4 +29,5 @@ RUN  hugo --minify
 #ENTRYPOINT ["/usr/local/bin/hugo", "server","--buildFuture", "--bind", "0.0.0.0"]
 
 FROM nginx:alpine
-COPY --from=0 /src/public/* /usr/share/nginx/html
+COPY --from=0 /src/public/ /public
+RUN rm -rf /usr/share/nginx/html && mv /public /usr/share/nginx/html

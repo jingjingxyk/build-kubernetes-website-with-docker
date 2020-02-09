@@ -21,7 +21,7 @@ RUN mkdir -p /usr/local/src && \
     addgroup -Sg 1000 hugo && \
     adduser -Sg hugo -u 1000 -h /src hugo
 RUN git clone https://github.com/kubernetes/website.git
-RUN cp -a -R /website/* /src
+RUN cp -a -R /website/. /src
 WORKDIR /src
 RUN /usr/local/bin/hugo version
 EXPOSE 1313

@@ -11,6 +11,7 @@ VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
 IMAGE="${DOCKER_IMAGE}:${VERSION}"
 echo ${IMAGE}
 echo ${VERSION}
+git checkout ${VERSION}
 cd ..
 
 DOCKER_HUB_TAG_API="https://registry.hub.docker.com/v2/repositories/${DOCKER_IMAGE}/tags/?page=1&page_size=365"

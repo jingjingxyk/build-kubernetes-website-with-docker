@@ -2,6 +2,7 @@ FROM alpine:latest
 
 MAINTAINER zonghengbaihe521@qq.com
 
+
 #RUN sed -i "s@http://dl-cdn.alpinelinux.org/@https://mirrors.huaweicloud.com/@g" /etc/apk/repositories
 RUN apk update
 RUN apk add --no-cache \
@@ -31,5 +32,7 @@ RUN  hugo --minify
 #ENTRYPOINT ["/usr/local/bin/hugo", "server","--buildFuture", "--bind", "0.0.0.0"]
 
 FROM nginx:alpine
+MAINTAINER zonghengbaihe521@qq.com
+LABEL author=jingjingxyk
 COPY --from=0 /src/public/ /usr/share/nginx/html
 

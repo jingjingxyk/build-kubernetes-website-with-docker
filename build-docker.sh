@@ -20,7 +20,7 @@ sed -e 's/,/,\n/g' -e 's/\[/\[\n/g' | \
 grep '"name"' | \
 awk -F\" '{print $4;}' | \
 sort -fu  | \
-grep -wq ${VERSION} &&  echo "Yes,已经存在终止构建程序"  && exit 0
+grep -wq ${VERSION} &&  echo "Yes,最新版本已经存在,终止构建"  && exit 0
 
 
 docker search wenba100xie

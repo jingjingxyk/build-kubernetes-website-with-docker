@@ -23,7 +23,7 @@ RUN mkdir -p /usr/local/src && \
     adduser -Sg hugo -u 1000 -h /src hugo
 ADD website /website
 WORKDIR /website
-RUN git pull --force
+#RUN git pull --force
 RUN cp -a -R /website/. /src
 WORKDIR /src
 RUN /usr/local/bin/hugo version

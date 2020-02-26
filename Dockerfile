@@ -20,7 +20,7 @@ RUN mkdir -p /usr/local/src && \
     mv hugo /usr/local/bin/hugo && \
     addgroup -Sg 1000 hugo && \
     adduser -Sg hugo -u 1000 -h /src hugo
-RUN git clone https://github.com/kubernetes/website.git
+
 RUN cp -a -R /website/. /src
 WORKDIR /src
 RUN /usr/local/bin/hugo version

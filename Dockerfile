@@ -2,7 +2,7 @@ FROM alpine:latest
 
 MAINTAINER zonghengbaihe521@qq.com
 
-RUN sed -i "s@http://dl-cdn.alpinelinux.org/@https://mirrors.huaweicloud.com/@g" /etc/apk/repositories
+#RUN sed -i "s@http://dl-cdn.alpinelinux.org/@https://mirrors.huaweicloud.com/@g" /etc/apk/repositories
 RUN apk update
 RUN apk add --no-cache \
     curl \

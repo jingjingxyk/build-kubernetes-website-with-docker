@@ -23,8 +23,8 @@ RUN mkdir -p /usr/local/src && \
     adduser -Sg hugo -u 1000 -h /src hugo
 ADD website /website
 WORKDIR /website
-RUN apk add nodejs npm 
-RUN curl -o- -L https://yarnpkg.com/install.sh | sh -s -- --nightly
+RUN apk add nodejs npm bash
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
 
 RUN yarn install 
 RUN git submodule update --init --recursive --depth 1

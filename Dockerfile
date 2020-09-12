@@ -23,6 +23,8 @@ RUN mkdir -p /usr/local/src && \
     adduser -Sg hugo -u 1000 -h /src hugo
 ADD website /website
 WORKDIR /website
+RUN yarn 
+RUN git submodule update --init --recursive --depth 1
 #RUN git pull --force
 RUN cp -a -R /website/. /src
 WORKDIR /src

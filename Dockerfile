@@ -25,7 +25,7 @@ ADD website /website
 WORKDIR /website
 RUN apk add nodejs npm bash
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
-
+ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
 RUN yarn install 
 RUN git submodule update --init --recursive --depth 1
 #RUN git pull --force

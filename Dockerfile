@@ -24,7 +24,7 @@ RUN mkdir -p /usr/local/src && \
 ADD website /website
 WORKDIR /website
 RUN apk add nodejs npm 
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
+RUN curl -o- -L https://yarnpkg.com/install.sh | sh -s -- --nightly
 
 RUN yarn install 
 RUN git submodule update --init --recursive --depth 1

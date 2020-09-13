@@ -39,7 +39,7 @@ do
 done
 
 tar -czvf "kubernetes-${KUBE_VERSION}.tar.gz" "./${KUBE_VERSION}"
-url -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.8 TARGET_ARCH=x86_64 sh -
+curl -L https://istio.io/downloadIstio | sh -
 
 
 git clone https://github.com/kubernetes/website.git

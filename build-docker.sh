@@ -10,7 +10,8 @@ cd website
 #VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
 git fetch --tags
 #VERSION=$(`git describe --abbrev=0`)
-TIME=`date "+%Y%m%d%H%M"`
+#TIME=`date "+%Y%m%d%H%M"`
+TIME=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
 GIT_REVISION=`git log -1 --pretty=format:"%h"`
 VERSION=${TIME}_${GIT_REVISION}
 IMAGE="${DOCKER_IMAGE}:${VERSION}"

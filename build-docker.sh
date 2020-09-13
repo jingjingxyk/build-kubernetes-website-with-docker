@@ -8,7 +8,11 @@ TIME=`date "+%Y%m%d"`
 git clone https://github.com/kubernetes/website.git
 cd website
 #VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
-VERSION=$(`git describe --abbrev=0`)
+git fetch --tags
+#VERSION=$(`git describe --abbrev=0`)
+TIME=`date "+%Y%m%d%H%M"`
+GIT_REVISION=`git log -1 --pretty=format:"%h"`
+VERSION=${TIME}_${GIT_REVISION}
 IMAGE="${DOCKER_IMAGE}:${VERSION}"
 echo ${IMAGE}
 echo ${VERSION}

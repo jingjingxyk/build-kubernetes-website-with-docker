@@ -35,11 +35,11 @@ do
    echo ${line}
    name=$(echo ${line} | sed -r 's/.*\/(.*):.*/\1/')
    echo ${name}
-   docker save   save -o "./${KUBE_VERSION}/kubernetes-${name}.tar" ${line}
+   docker    save -o "./${KUBE_VERSION}/kubernetes-${name}.tar" ${line}
 done
 
 tar -czvf "kubernetes-${KUBE_VERSION}.tar.gz" "./${KUBE_VERSION}"
-
+url -L https://istio.io/downloadIstio | ISTIO_VERSION=1.6.8 TARGET_ARCH=x86_64 sh -
 
 
 git clone https://github.com/kubernetes/website.git

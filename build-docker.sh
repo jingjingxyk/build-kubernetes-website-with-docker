@@ -58,6 +58,7 @@ GIT_REVISION=`git log -1 --pretty=format:"%h"`
 #VERSION=${TIME}_${GIT_REVISION}
 VERSION=${KUBE_VERSION}
 IMAGE="${DOCKER_IMAGE}:${VERSION}"
+echo ${VERSION}
 echo ${IMAGE}
 echo ${VERSION}
 cd ..

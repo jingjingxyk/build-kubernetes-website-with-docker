@@ -44,7 +44,7 @@ wget https://github.com/istio/istio/releases/download/1.7.1/istioctl-1.7.1-linux
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.19.0/crictl-v1.19.0-linux-amd64.tar.gz
 curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.16.1/calicoctl
-
+ls -lh .
 git clone https://github.com/kubernetes/website.git
 cd website
 #VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)

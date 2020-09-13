@@ -11,7 +11,8 @@ cd website
 git fetch --tags
 #VERSION=$(`git describe --abbrev=0`)
 #TIME=`date "+%Y%m%d%H%M"`
-TIME=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
+#TIME=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
+TIME=`date +"%Y%m%dT%H%M%S%z"`
 GIT_REVISION=`git log -1 --pretty=format:"%h"`
 VERSION=${TIME}_${GIT_REVISION}
 IMAGE="${DOCKER_IMAGE}:${VERSION}"

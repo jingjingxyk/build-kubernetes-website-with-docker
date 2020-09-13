@@ -61,10 +61,6 @@ echo ${IMAGE}
 echo ${VERSION}
 
 
-
-
-
-git checkout ${VERSION}
 cd ..
 
 DOCKER_HUB_TAG_API="https://registry.hub.docker.com/v2/repositories/${DOCKER_IMAGE}/tags/?page=1&page_size=365"

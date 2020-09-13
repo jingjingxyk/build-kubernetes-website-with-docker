@@ -7,7 +7,8 @@ TIME=`date "+%Y%m%d"`
 
 git clone https://github.com/kubernetes/website.git
 cd website
-VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
+#VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
+VERSION=$(`git describe --abbrev=0`)
 IMAGE="${DOCKER_IMAGE}:${VERSION}"
 echo ${IMAGE}
 echo ${VERSION}

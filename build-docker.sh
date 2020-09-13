@@ -55,13 +55,13 @@ TIME=`date "+%Y%m%d"`
 #TIME=`date -u +"%Y-%m-%dT%H:%M:%SZ"`
 #TIME=`date +"%Y%m%dT%H%M%S%z"`
 GIT_REVISION=`git log -1 --pretty=format:"%h"`
-VERSION=${TIME}_${GIT_REVISION}
+#VERSION=${TIME}_${GIT_REVISION}
+VERSION=${KUBE_VERSION}
 IMAGE="${DOCKER_IMAGE}:${VERSION}"
 echo ${IMAGE}
 echo ${VERSION}
-
-
 cd ..
+
 
 DOCKER_HUB_TAG_API="https://registry.hub.docker.com/v2/repositories/${DOCKER_IMAGE}/tags/?page=1&page_size=365"
 echo ${DOCKER_HUB_TAG_API}

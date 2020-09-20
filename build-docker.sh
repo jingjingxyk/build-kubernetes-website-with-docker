@@ -58,7 +58,7 @@ GIT_REVISION=`git log -1 --pretty=format:"%h"`
 #VERSION=${TIME}_${GIT_REVISION}
 VERSION=${KUBE_VERSION}
 DOCKER_IMAGE="wenba100xie/kubernetes-website"
-IMAGE="${DOCKER_IMAGE}:kubernetes-${VERSION}-no-tools"
+IMAGE="${DOCKER_IMAGE}:kubernetes-${VERSION}"
 echo ${VERSION}
 echo ${IMAGE}
 echo ${VERSION}

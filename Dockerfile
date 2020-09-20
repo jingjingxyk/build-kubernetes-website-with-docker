@@ -41,11 +41,11 @@ MAINTAINER zonghengbaihe521@qq.com
 LABEL author=jingjingxyk
 
 COPY --from=0 /src/public/ /usr/share/nginx/html
-RUN mkdir -p /usr/share/nginx/html/kubernetes-container-binnary
-ADD ./calicoctl /usr/share/nginx/html/kubernetes-container-binnary
-ADD ./cephadm /usr/share/nginx/html/kubernetes-container-binnary
-ADD ./crictl-v1.19.0-linux-amd64.tar.gz /usr/share/nginx/html/kubernetes-container-binnary
-ADD ./istio-1.7.1 /usr/share/nginx/html/kubernetes-container-binnary/istio-1.7.1
-ADD ./kubernetes-v1.19.1.tar.gz /usr/share/nginx/html/kubernetes-container-binnary
-RUN ls /usr/share/nginx/html/kubernetes-container-binnary > soft-list.txt
+#RUN mkdir -p /usr/share/nginx/html/kubernetes-container-binnary
+#ADD ./calicoctl /usr/share/nginx/html/kubernetes-container-binnary
+#ADD ./cephadm /usr/share/nginx/html/kubernetes-container-binnary
+#ADD ./crictl-v1.19.0-linux-amd64.tar.gz /usr/share/nginx/html/kubernetes-container-binnary
+#ADD ./istio-1.7.1 /usr/share/nginx/html/kubernetes-container-binnary/istio-1.7.1
+#ADD ./kubernetes-v1.19.1.tar.gz /usr/share/nginx/html/kubernetes-container-binnary
+#RUN ls /usr/share/nginx/html/kubernetes-container-binnary > soft-list.txt
 

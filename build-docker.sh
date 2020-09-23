@@ -38,7 +38,7 @@ do
    docker    save -o "./${KUBE_VERSION}/kubernetes-${name}.tar" ${line}
 done
 
-tar -czvf "kubernetes-${KUBE_VERSION}.tar.gz" "./${KUBE_VERSION}" tools
+tar -czvf "kubernetes-${KUBE_VERSION}.tar.gz" "./${KUBE_VERSION}"
 mkdir tools
 mv "kubernetes-${KUBE_VERSION}.tar.gz" tools
 cd tools

@@ -38,13 +38,18 @@ do
    docker    save -o "./${KUBE_VERSION}/kubernetes-${name}.tar" ${line}
 done
 
-tar -czvf "kubernetes-${KUBE_VERSION}.tar.gz" "./${KUBE_VERSION}"
+tar -czvf "kubernetes-${KUBE_VERSION}.tar.gz" "./${KUBE_VERSION}" tools
+mkdir tools
+mv "kubernetes-${KUBE_VERSION}.tar.gz" tools
+cd tools
+
 curl -L https://istio.io/downloadIstio | sh -
 wget https://github.com/istio/istio/releases/download/1.7.2/istio-1.7.2-linux-amd64.tar.gz
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.19.0/crictl-v1.19.0-linux-amd64.tar.gz
 curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.16.1/calicoctl
 ls -lh .
+cd .. # 返回构建根目录
 git clone https://github.com/kubernetes/website.git
 cd website
 #VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)

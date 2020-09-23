@@ -72,7 +72,7 @@ old_build_tag=curl -s -S ${DOCKER_HUB_TAG_API} | \
 sed -e 's/,/,\n/g' -e 's/\[/\[\n/g' | \
 grep '"name"' | \
 awk -F\" '{print $4;}' | \
-awk   '/^'${VERSION}'$/{print $1}'
+awk   '/^'${IMAGE_TAG}'$/{print $1}'
 
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
    echo "Yes,最新版本已经存在,终止构建"

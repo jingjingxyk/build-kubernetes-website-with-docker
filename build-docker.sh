@@ -72,8 +72,16 @@ sed -e 's/,/,\n/g' -e 's/\[/\[\n/g' | \
 grep '"name"' | \
 awk -F\" '{print $4;}' | \
 sort -fu  | \
-grep -wq ${VERSION} &&  echo "Yes,最新版本已经存在,终止构建"  && exit 0
-
+grep -wq ${VERSION} &&  echo "Yes,最新版本已经存在,终止构建"  && echo "开始构建新版本"
+echo "构建环境详情"
+cat /etc/os-release
+uname -a && cat /proc/version
+echo "ip是:"
+curl -s ip.sb
+cal
+date -u +"%Y-%m-%dT%H:%M:%SZ"
+date +%Y-%m-%dT%H:%M:%S%z
+env
 
 docker search wenba100xie
 

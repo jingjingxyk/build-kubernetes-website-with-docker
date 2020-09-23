@@ -68,7 +68,7 @@ cd ..
 
 DOCKER_HUB_TAG_API="https://registry.hub.docker.com/v2/repositories/${DOCKER_IMAGE}/tags/?page=1&page_size=365"
 echo ${DOCKER_HUB_TAG_API}
-old_build_tag=curl -s -S ${DOCKER_HUB_TAG_API} | \
+old_build_tag=curl -s  ${DOCKER_HUB_TAG_API} | \
 sed -e 's/,/,\n/g' -e 's/\[/\[\n/g' | \
 grep '"name"' | \
 awk -F\" '{print $4;}' | \

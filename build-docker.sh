@@ -93,15 +93,15 @@ env
 
 docker search wenba100xie
 
-
+echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
 
 docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION} 
-echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 docker push 'wenba100xie/kubernetes-website:latest'
+
+docker build -t ${IMAGE} -f ./Dockerfile2  . 
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
-   docker build -t ${IMAGE} -f ./Dockerfile2  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
    echo "Yes,最新版本kubernetes 安装包已经存在,终止构建推送"
    exit 0 
 fi

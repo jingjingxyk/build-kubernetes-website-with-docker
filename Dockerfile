@@ -44,4 +44,5 @@ COPY --from=0 /src/public/ /usr/share/nginx/html
 RUN mkdir -p /usr/share/nginx/html/kubernetes-container-binnary
 ADD ./tools /usr/share/nginx/html/kubernetes-container-binnary
 RUN ls /usr/share/nginx/html/kubernetes-container-binnary > /usr/share/nginx/html/kubernetes-container-binnary/k8s-soft-list.txt
+ADD ./default.conf /etc/nginx/conf.d/default.conf
 

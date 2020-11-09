@@ -14,6 +14,7 @@ RUN apk add --no-cache \
     libc6-compat
 
 ARG HUGO_VERSION
+ARG IS_NO_TOOLS
 
 RUN mkdir -p /usr/local/src && \
     cd /usr/local/src && \
@@ -45,4 +46,5 @@ RUN mkdir -p /usr/share/nginx/html/kubernetes-container-binnary
 ADD ./tools /usr/share/nginx/html/kubernetes-container-binnary
 RUN ls /usr/share/nginx/html/kubernetes-container-binnary > /usr/share/nginx/html/kubernetes-container-binnary/k8s-soft-list.txt
 ADD ./default.conf /etc/nginx/conf.d/default.conf
+RUN /bin/sh -c "if( ${IS_NO_TOOLS} );then rm -rf /usr/share/nginx/html/kubernetes-container-binnary; fi"
 

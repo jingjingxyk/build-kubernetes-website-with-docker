@@ -1,0 +1,4 @@
+FROM nginx:alpine
+ADD ./tools /usr/share/nginx/html/
+RUN ls /usr/share/nginx/html/ /usr/share/nginx/html/soft-list.txt
+ADD ./default.conf /etc/nginx/conf.d/default.conf

@@ -96,11 +96,12 @@ docker search wenba100xie
 
 
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
-docker build -t ${IMAGE} -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
-docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION} --build-arg IS_NO_TOOLS=1
+
+docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION} 
 echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 docker push 'wenba100xie/kubernetes-website:latest'
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
+   docker build -t ${IMAGE} -f ./Dockerfile2  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
    echo "Yes,最新版本kubernetes 安装包已经存在,终止构建推送"
    exit 0 
 fi

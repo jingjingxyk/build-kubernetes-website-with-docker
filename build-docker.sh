@@ -63,7 +63,7 @@ GIT_REVISION=`git log -1 --pretty=format:"%h"`
 #VERSION=${TIME}_${GIT_REVISION}
 VERSION=${KUBE_VERSION}
 DOCKER_IMAGE="wenba100xie/kubernetes-website"
-IMAGE_TAG="kubernetes-${VERSION}"
+IMAGE_TAG="kubernetes-tools-${VERSION}"
 IMAGE="${DOCKER_IMAGE}:${IMAGE_TAG}"
 echo ${VERSION}
 echo ${IMAGE}
@@ -79,10 +79,7 @@ grep '"name"' | \
 awk -F\" '{print $4;}' | \
 awk   '/^'${IMAGE_TAG}'$/{print $1}' )
 
-if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
-   echo "Yes,最新版本已经存在,终止构建"
-   exit 0 
-fi
+
 
 echo "开始新的构建，构建准备环境环境详情如下"
 cat /etc/os-release
@@ -96,7 +93,15 @@ env
 
 docker search wenba100xie
 
+
+
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
 docker build -t ${IMAGE} -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
+docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION} --build-arg IS_NO_TOOLS=TRUE
 echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
+if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
+   docker push 'wenba100xie/kubernetes-website:latest'
+   echo "Yes,最新版本kubernetes 安装包已经存在,终止构建推送"
+   exit 0 
+fi
 docker push ${IMAGE}

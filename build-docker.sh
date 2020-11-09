@@ -73,11 +73,11 @@ cd ..
 
 DOCKER_HUB_TAG_API="https://registry.hub.docker.com/v2/repositories/${DOCKER_IMAGE}/tags/?page=1&page_size=365"
 echo ${DOCKER_HUB_TAG_API}
-old_build_tag=curl -s  ${DOCKER_HUB_TAG_API} | \
+old_build_tag=$(curl -s  ${DOCKER_HUB_TAG_API} | \
 sed -e 's/,/,\n/g' -e 's/\[/\[\n/g' | \
 grep '"name"' | \
 awk -F\" '{print $4;}' | \
-awk   '/^'${IMAGE_TAG}'$/{print $1}'
+awk   '/^'${IMAGE_TAG}'$/{print $1}' )
 
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
    echo "Yes,最新版本已经存在,终止构建"

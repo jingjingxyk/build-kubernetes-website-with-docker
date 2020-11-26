@@ -7,7 +7,7 @@ TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
 # IMAGE="${DOCKER_IMAGE}:${VERSION}"
 
-sudo apt-get update && sudo apt-get install -y apt-transport-https curl wget make gcc 
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl wget make gcc hugo golang
 git clone https://github.com/istio/istio.io.git
 git clone https://github.com/projectcalico/calico.git
 
@@ -15,7 +15,7 @@ git clone https://github.com/projectcalico/calico.git
 cd istio.io && make build 
 docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
 docker push wenba100xie/istio-io-websiete-mirror:latest
-
+cd ..
 ##calico-docs
 
 docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .

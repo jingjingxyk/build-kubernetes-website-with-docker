@@ -43,7 +43,7 @@ mkdir tools
 mv "kubernetes-${KUBE_VERSION}.tar.gz" tools
 cd tools
 
-curl -L https://istio.io/downloadIstio | sh -
+#curl -L https://istio.io/downloadIstio | sh -
 wget https://github.com/istio/istio/releases/download/1.7.2/istio-1.7.2-linux-amd64.tar.gz
 wget https://github.com/istio/istio/releases/download/1.8.0/istio-1.8.0-linux-amd64.tar.gz
 wget https://github.com/docker/compose/releases/download/1.27.4/docker-compose-Linux-x86_64
@@ -102,6 +102,21 @@ export DOCKER_BUILDKIT=1
 docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION} 
 docker push 'wenba100xie/kubernetes-website:latest'
 
+
+
+git clone https://github.com/istio/istio.io.git
+git clone https://github.com/projectcalico/calico.git
+
+#istio-io website
+docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
+docker push wenba100xie/istio-io-websiete-mirror:latest
+
+##calico-docs
+
+docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .
+docker push wenba100xie/projectcalico-docs:latest:latest
+
+#k8s-need-docker
 docker build -t ${IMAGE} -f ./Dockerfile2  . 
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
    echo "Yes,最新版本kubernetes 安装包已经存在,终止构建推送"

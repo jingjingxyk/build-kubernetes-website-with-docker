@@ -50,6 +50,7 @@ wget https://github.com/docker/compose/releases/download/1.27.4/docker-compose-L
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.19.0/crictl-v1.19.0-linux-amd64.tar.gz
 curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.17.0/calicoctl-linux-amd64
+wget https://github.com/goharbor/harbor/archive/v2.1.1.tar.gz
 ls -lh .
 cd .. # 返回构建根目录
 git clone https://github.com/kubernetes/website.git

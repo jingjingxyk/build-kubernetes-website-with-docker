@@ -1,5 +1,5 @@
 FROM golang:buster
-RUN ap update -y
+RUN apt update -y
 RUN apt install -y -y make  git wget curl gcc   hugo
 ADD istio.io /istio.io
 WORKDIR /istio.io

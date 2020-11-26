@@ -116,7 +116,7 @@ docker push wenba100xie/istio-io-websiete-mirror:latest
 docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .
 docker push wenba100xie/projectcalico-docs:latest:latest
 
-#k8s-need-docker
+#k8s-need-docker-to-tar
 docker build -t ${IMAGE} -f ./Dockerfile2  . 
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
    echo "Yes,最新版本kubernetes 安装包已经存在,终止构建推送"

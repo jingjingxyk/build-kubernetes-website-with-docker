@@ -5,7 +5,22 @@ TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
 # IMAGE="${DOCKER_IMAGE}:${VERSION}"
 
-sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl wget 
+git clone https://github.com/istio/istio.io.git
+git clone https://github.com/projectcalico/calico.git
+
+#istio-io website
+docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
+docker push wenba100xie/istio-io-websiete-mirror:latest
+
+##calico-docs
+
+docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .
+docker push wenba100xie/projectcalico-docs:latest:latest
+
+
+
+
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
@@ -105,17 +120,7 @@ docker push 'wenba100xie/kubernetes-website:latest'
 
 
 
-git clone https://github.com/istio/istio.io.git
-git clone https://github.com/projectcalico/calico.git
 
-#istio-io website
-docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
-docker push wenba100xie/istio-io-websiete-mirror:latest
-
-##calico-docs
-
-docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .
-docker push wenba100xie/projectcalico-docs:latest:latest
 
 #k8s-need-docker-to-tar
 docker build -t ${IMAGE} -f ./Dockerfile2  . 

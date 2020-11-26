@@ -5,8 +5,9 @@ WORKDIR /calico
 RUN apk add gcc make cmake git curl wget  jekyll
 RUN gem install bundler
 RUN bundle install
+RUN bundle exec jekyll build
 
 
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
-COPY --from=0 /istio.io/public/* /usr/share/nginx/html/
+COPY --from=0 /calico/_site/* /usr/share/nginx/html/

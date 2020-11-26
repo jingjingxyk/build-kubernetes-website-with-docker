@@ -46,9 +46,10 @@ cd tools
 curl -L https://istio.io/downloadIstio | sh -
 wget https://github.com/istio/istio/releases/download/1.7.2/istio-1.7.2-linux-amd64.tar.gz
 wget https://github.com/istio/istio/releases/download/1.8.0/istio-1.8.0-linux-amd64.tar.gz
+wget https://github.com/docker/compose/releases/download/1.27.4/docker-compose-Linux-x86_64
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.19.0/crictl-v1.19.0-linux-amd64.tar.gz
 curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
-curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.16.1/calicoctl
+curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.17.0/calicoctl-linux-amd64
 ls -lh .
 cd .. # 返回构建根目录
 git clone https://github.com/kubernetes/website.git

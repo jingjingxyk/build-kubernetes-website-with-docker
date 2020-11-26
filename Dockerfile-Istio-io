@@ -1,5 +1,5 @@
 FROM golang:alpine
-
+RUN apk add make cmake git wget curl gcc
 ADD istio.io /istio.io
 WORKDIR /istio.io
 RUN make build 

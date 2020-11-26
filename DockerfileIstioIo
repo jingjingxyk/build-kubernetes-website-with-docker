@@ -1,0 +1,9 @@
+FROM golang:alpine
+
+ADD istio.io /istio.io
+WORKDIR /istio.io
+RUN make build 
+
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=0 /istio.io/public/* /usr/share/nginx/html/

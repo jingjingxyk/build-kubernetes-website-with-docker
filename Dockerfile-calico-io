@@ -1,0 +1,12 @@
+FROM ruby:alpine
+
+ADD calico /calico
+WORKDIR /calico
+RUN apk add gcc make cmake git curl wget  jekyll
+RUN gem install bundler
+RUN bundle install
+
+
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=0 /istio.io/public/* /usr/share/nginx/html/

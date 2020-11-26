@@ -1,5 +1,7 @@
 #!/bin/env sh
 set -e 
+export DOCKER_BUILDKIT=1
+
 HUGO_VERSION='0.64.0'
 TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
@@ -114,7 +116,7 @@ docker search wenba100xie
 echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
-export DOCKER_BUILDKIT=1
+
 docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION} 
 docker push 'wenba100xie/kubernetes-website:latest'
 

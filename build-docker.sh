@@ -15,8 +15,9 @@ git clone https://github.com/projectcalico/calico.git
 cd istio.io 
 ls -lah 
 $1="/"
-hugo --baseURL $1
-find ./public -type f -exec sed -i "s:$1$1:$1:g" {} \;
+#hugo --baseURL $1
+#find ./public -type f -exec sed -i "s:$1$1:$1:g" {} \;
+sh scripts/build_site.sh
 
 docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
 docker push wenba100xie/istio-io-websiete-mirror:latest

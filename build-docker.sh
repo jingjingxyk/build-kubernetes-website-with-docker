@@ -12,7 +12,9 @@ git clone https://github.com/istio/istio.io.git
 git clone https://github.com/projectcalico/calico.git
 
 #istio-io website
-cd istio.io && make build 
+cd istio.io 
+ls -lah 
+build_with_archive: site
 docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
 docker push wenba100xie/istio-io-websiete-mirror:latest
 cd ..

@@ -14,7 +14,7 @@ git clone https://github.com/projectcalico/calico.git
 #istio-io website
 cd istio.io 
 ls -lah 
-hugo --baseURL site
+hugo --baseURL /
 docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
 docker push wenba100xie/istio-io-websiete-mirror:latest
 cd ..

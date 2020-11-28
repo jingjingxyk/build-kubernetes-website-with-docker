@@ -128,9 +128,6 @@ docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --
 docker push 'wenba100xie/kubernetes-website:latest'
 
 
-
-
-
 #k8s-need-docker-to-tar
 docker build -t ${IMAGE} -f ./Dockerfile2  . 
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then

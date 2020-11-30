@@ -72,9 +72,15 @@ wget https://github.com/istio/istio/releases/download/1.7.2/istio-1.7.2-linux-am
 wget https://github.com/istio/istio/releases/download/1.8.0/istio-1.8.0-linux-amd64.tar.gz
 wget https://github.com/docker/compose/releases/download/1.27.4/docker-compose-Linux-x86_64
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.19.0/crictl-v1.19.0-linux-amd64.tar.gz
+# https://github.com/kubernetes/dashboard
+wget -O Kubernetes-Dashboard-v2.0.4.yaml https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.4/aio/deploy/recommended.yaml 
+# calico
+wget -O calico-tigera-operator.yaml  https://docs.projectcalico.org/manifests/tigera-operator.yaml 
+wget -O calico-custom-resources.yaml  https://docs.projectcalico.org/manifests/custom-resources.yaml 
+
 curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.17.0/calicoctl-linux-amd64
-wget https://github.com/goharbor/harbor/archive/v2.1.1.tar.gz
+wget https://github.com/goharbor/harbor/releases/download/v2.1.1/harbor-online-installer-v2.1.1.tgz
 ls -lh .
 cd .. # 返回构建根目录
 git clone https://github.com/kubernetes/website.git

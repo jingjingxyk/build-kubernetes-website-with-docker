@@ -81,6 +81,7 @@ wget -O calico-custom-resources.yaml  https://docs.projectcalico.org/manifests/c
 curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.17.0/calicoctl-linux-amd64
 wget https://github.com/goharbor/harbor/releases/download/v2.1.1/harbor-online-installer-v2.1.1.tgz
+wget https://github.com/symfony/cli/releases/download/v4.21.2/symfony_linux_amd64.gz
 ls -lh .
 cd .. # 返回构建根目录
 git clone https://github.com/kubernetes/website.git

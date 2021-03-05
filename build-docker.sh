@@ -7,7 +7,12 @@ TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
 # IMAGE="${DOCKER_IMAGE}:${VERSION}"
 
-sudo apt-get update && sudo apt-get install -y apt-transport-https curl wget make gcc hugo golang
+sudo apt-get update 
+sudo apt-get autoclean            #    清理旧版本的软件缓存
+sudo apt-get clean                 #   清理所有软件缓存
+sudo apt-get autoremove            # 删除系统不再使用的孤立软件
+
+sudo apt-get install -y apt-transport-https curl wget make gcc hugo golang
 #git clone https://github.com/istio/istio.io.git
 #git clone https://github.com/projectcalico/calico.git
 

@@ -45,7 +45,7 @@ EOF
 #cd /var/lib/dpkg
 #sudo rm -rf info
 #sudo mkdir info
-sudo apt-get upgrade
+sudo apt-get upgrade -y
 
 sudo apt-get install -y kubelet kubeadm kubectl
 #sudo apt-mark hold kubelet kubeadm kubectl

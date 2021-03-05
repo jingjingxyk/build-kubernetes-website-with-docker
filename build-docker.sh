@@ -34,22 +34,23 @@ sudo git clone  https://github.com/ceph/ceph.git
 cd  ceph
 sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
 sudo  admin/build-doc
-mv   admin/build-doc/output /ceph-build-docs/ceph-output
-sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
-sudo  mv cephadm /ceph-build-docs/ceph-output/
 cd ..
+mv   admin/build-doc/output ceph-build-docs/ceph-output
+sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
+sudo  mv cephadm ceph-build-docs/ceph-output/
+
 sh ceph-build-docs/docker-build.sh
 
-#git clone https://github.com/istio/istio.io.git
+git clone https://github.com/istio/istio.io.git
 #git clone https://github.com/projectcalico/calico.git
 
 #istio-io website
-#cd istio.io
+cd istio.io
 #ls -lah
+git pull
+make build
+cd ..
 
-#hugo --baseURL $1
-#find ./public -type f -exec sed -i "s:$1$1:$1:g" {} \;
-#sh scripts/build_site.sh
 
 #docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
 #docker push wenba100xie/istio-io-websiete-mirror:latest

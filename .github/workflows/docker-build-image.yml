@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: docker/build-push-action@v2.3.0
     - name: Build the Docker image
       run: sh build-docker.sh
       env:

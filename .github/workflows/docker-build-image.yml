@@ -9,8 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: docker/build-push-action@v2.3.0
-    - name: Build the Docker image
+
+    # actions/checkout@v2 
+    - name: Get Need File
       run: sh build-docker.sh
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}

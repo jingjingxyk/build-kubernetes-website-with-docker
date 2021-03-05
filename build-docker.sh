@@ -12,7 +12,7 @@ sudo apt-get autoclean            #    清理旧版本的软件缓存
 sudo apt-get clean                 #   清理所有软件缓存
 sudo apt-get autoremove            # 删除系统不再使用的孤立软件
 
-sudo apt-get install -y apt-transport-https curl wget make gcc hugo golang
+sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
 #git clone https://github.com/istio/istio.io.git
 #git clone https://github.com/projectcalico/calico.git
 
@@ -40,7 +40,12 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
-sudo apt-get update -y
+
+cd /var/lib/dpkg 
+rm -rf info
+sudo mkdir info
+sudo apt-get upgrade
+
 sudo apt-get install -y kubelet kubeadm kubectl
 #sudo apt-mark hold kubelet kubeadm kubectl
 

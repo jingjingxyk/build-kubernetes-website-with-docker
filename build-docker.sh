@@ -47,7 +47,7 @@ EOF
 #sudo mkdir info
 sudo apt-get upgrade -y
 
-sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-get install -y kubelet kubeadm kubectl nftables
 #sudo apt-mark hold kubelet kubeadm kubectl
 
 

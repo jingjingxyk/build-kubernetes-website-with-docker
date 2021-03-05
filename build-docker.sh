@@ -42,7 +42,7 @@ deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
 cd /var/lib/dpkg 
-rm -rf info
+sudo rm -rf info
 sudo mkdir info
 sudo apt-get upgrade
 

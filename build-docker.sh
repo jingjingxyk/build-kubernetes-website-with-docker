@@ -1,5 +1,5 @@
 #!/bin/env sh
-set -e 
+set -eux
 export DOCKER_BUILDKIT=1
 
 HUGO_VERSION='0.64.0'
@@ -7,7 +7,7 @@ TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
 # IMAGE="${DOCKER_IMAGE}:${VERSION}"
 
-#sudo apt-get update 
+#sudo apt-get update
 sudo apt-get autoclean            #    清理旧版本的软件缓存
 sudo apt-get clean                 #   清理所有软件缓存
 sudo apt-get autoremove            # 删除系统不再使用的孤立软件
@@ -17,8 +17,8 @@ sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
 #git clone https://github.com/projectcalico/calico.git
 
 #istio-io website
-#cd istio.io 
-#ls -lah 
+#cd istio.io
+#ls -lah
 
 #hugo --baseURL $1
 #find ./public -type f -exec sed -i "s:$1$1:$1:g" {} \;
@@ -41,7 +41,7 @@ cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
-cd /var/lib/dpkg 
+cd /var/lib/dpkg
 sudo rm -rf info
 sudo mkdir info
 sudo apt-get upgrade
@@ -85,10 +85,10 @@ wget https://github.com/istio/istio/releases/download/1.9.0/istioctl-1.9.0-linux
 wget https://github.com/docker/compose/releases/download/1.27.4/docker-compose-Linux-x86_64
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.20.0/crictl-v1.20.0-linux-amd64.tar.gz
 # https://github.com/kubernetes/dashboard
-wget -O Kubernetes-Dashboard-v2.0.4.yaml https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.4/aio/deploy/recommended.yaml 
+wget -O Kubernetes-Dashboard-v2.0.4.yaml https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.4/aio/deploy/recommended.yaml
 # calico
-wget -O calico-tigera-operator.yaml  https://docs.projectcalico.org/manifests/tigera-operator.yaml 
-wget -O calico-custom-resources.yaml  https://docs.projectcalico.org/manifests/custom-resources.yaml 
+wget -O calico-tigera-operator.yaml  https://docs.projectcalico.org/manifests/tigera-operator.yaml
+wget -O calico-custom-resources.yaml  https://docs.projectcalico.org/manifests/custom-resources.yaml
 # metrics-server
 wget -O metrics-server-components-v0.4.2.yaml https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.2/components.yaml
 
@@ -149,14 +149,14 @@ echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
 
-docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION} 
+docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
 docker push 'wenba100xie/kubernetes-website:latest'
 
 
 #k8s-need-docker-to-tar
-docker build -t ${IMAGE} -f ./Dockerfile2  . 
+docker build -t ${IMAGE} -f ./Dockerfile2  .
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
    echo "Yes,最新版本kubernetes 安装包已经存在,终止构建推送"
-   exit 0 
+   exit 0
 fi
 docker push ${IMAGE}

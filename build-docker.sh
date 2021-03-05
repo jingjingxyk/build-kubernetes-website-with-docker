@@ -12,8 +12,20 @@ sudo apt-get autoclean            #    清理旧版本的软件缓存
 sudo apt-get clean                 #   清理所有软件缓存
 sudo apt-get autoremove            # 删除系统不再使用的孤立软件
 
-sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
+sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 
+ sudo apt-get update -y
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 #git clone https://github.com/istio/istio.io.git
 #git clone https://github.com/projectcalico/calico.git
 

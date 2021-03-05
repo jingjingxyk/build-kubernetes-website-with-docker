@@ -34,7 +34,8 @@ sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
 
 
 
-sudo apt remove -y kubernetes-cni
+sudo ps -ef
+sudo free -m
  sudo apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list

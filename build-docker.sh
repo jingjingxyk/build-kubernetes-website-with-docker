@@ -6,7 +6,7 @@ HUGO_VERSION='0.64.0'
 TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
 # IMAGE="${DOCKER_IMAGE}:${VERSION}"
-
+sudo apt-get update -y
 #sudo apt-get update
 sudo apt-get autoclean            #    清理旧版本的软件缓存
 sudo apt-get clean                 #   清理所有软件缓存
@@ -25,7 +25,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-sudo apt-get update -y
+
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 

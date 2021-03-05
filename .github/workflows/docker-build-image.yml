@@ -9,8 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Get Need File
+    - name: checkout code
+      uses: actions/checkout@v2
+    - name: excute build
       run: sh build-docker.sh
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}

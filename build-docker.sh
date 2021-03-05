@@ -25,8 +25,22 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
- sudo apt-get update -y
+sudo apt-get update -y
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+
+sudo apt install -y git curl wget sudo python3 python3-pip
+sudo git clone  https://github.com/ceph/ceph.git
+cd  ceph
+sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
+sudo  admin/build-doc
+cd ..
+mv   admin/build-doc/output /ceph-build-docs/ceph-output
+sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
+sudo  mv cephadm /ceph-build-docs/ceph-output/
+cd ..
+sh ceph-build-docs/docker-build.sh
+
 #git clone https://github.com/istio/istio.io.git
 #git clone https://github.com/projectcalico/calico.git
 
@@ -45,18 +59,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 #docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .
 #docker push wenba100xie/projectcalico-docs:latest:latest
-
-sudo apt install -y git curl wget sudo python3 python3-pip
-sudo git clone  https://github.com/ceph/ceph.git
-cd  ceph
-sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
-sudo  admin/build-doc
-cd ..
-mv   admin/build-doc/output /ceph-build-docs/ceph-output
-sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
-sudo  mv cephadm /ceph-build-docs/ceph-output/
-cd ..
-sh ceph-build-docs/docker-build.sh
 
 
 

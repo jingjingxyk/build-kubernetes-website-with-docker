@@ -12,7 +12,8 @@ sudo apt-get autoclean            #    清理旧版本的软件缓存
 sudo apt-get clean                 #   清理所有软件缓存
 sudo apt-get autoremove            # 删除系统不再使用的孤立软件
 
-sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
+#sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
+sudo yum install -y apt-transport-https cmake curl wget make gcc hugo golang
 #git clone https://github.com/istio/istio.io.git
 #git clone https://github.com/projectcalico/calico.git
 
@@ -36,19 +37,34 @@ sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
 
 sudo ps -ef
 sudo free -m
- sudo apt-get install -y apt-transport-https curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
-deb https://apt.kubernetes.io/ kubernetes-xenial main
-EOF
+# sudo apt-get install -y apt-transport-https curl
+#curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+#cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+#deb https://apt.kubernetes.io/ kubernetes-xenial main
+#EOF
 
 #cd /var/lib/dpkg
 #sudo rm -rf info
 #sudo mkdir info
-sudo apt-get upgrade -y
-
-sudo apt-get install -y kubelet kubeadm kubectl nftables
+#sudo apt-get upgrade -y
+#
+#sudo apt-get install -y kubelet kubeadm kubectl nftables
 #sudo apt-mark hold kubelet kubeadm kubectl
+
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+
+sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
 
 
 KUBE_VERSION=`kubelet --version |  awk -F ' ' '{print $2}'`

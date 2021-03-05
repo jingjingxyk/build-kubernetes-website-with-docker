@@ -12,6 +12,7 @@ sudo apt-get autoclean            #    清理旧版本的软件缓存
 sudo apt-get clean                 #   清理所有软件缓存
 sudo apt-get autoremove            # 删除系统不再使用的孤立软件
 
+sudo apt-get remove -y docker docker-engine docker.io containerd runc
 sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \

@@ -35,15 +35,15 @@ sudo apt-get install -y apt-transport-https cmake curl wget make gcc hugo golang
 
 
 
-sudo apt-get update -y && sudo apt-get install -y apt-transport-https curl
+ sudo apt-get install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
-cd /var/lib/dpkg
-sudo rm -rf info
-sudo mkdir info
+#cd /var/lib/dpkg
+#sudo rm -rf info
+#sudo mkdir info
 sudo apt-get upgrade
 
 sudo apt-get install -y kubelet kubeadm kubectl

@@ -27,8 +27,8 @@ sudo add-apt-repository \
 
  sudo apt-get update -y
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-#git clone https://github.com/istio/istio.io.git
-#git clone https://github.com/projectcalico/calico.git
+git clone https://github.com/istio/istio.io.git
+git clone https://github.com/projectcalico/calico.git
 
 #istio-io website
 #cd istio.io
@@ -46,6 +46,17 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 #docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .
 #docker push wenba100xie/projectcalico-docs:latest:latest
 
+sudo apt install -y git curl wget sudo python3 python3-pip
+sudo git clone  https://github.com/ceph/ceph.git
+cd  /ceph
+sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
+sudo  apt install -y python
+sudo  admin/build-doc
+sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
+sudo   mv cephadm build-doc
+
+cd /
+
 
 
 sudo ps -ef
@@ -61,7 +72,8 @@ EOF
 #sudo mkdir info
 #sudo apt-get upgrade -y
 #
-sudo apt-get install -y  kubeadm
+sudo apt-get update -y
+sudo apt-get install -y kubelet kubeadm kubectl
 
 
 

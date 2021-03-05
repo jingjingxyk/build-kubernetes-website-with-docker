@@ -48,14 +48,14 @@ git clone https://github.com/projectcalico/calico.git
 
 sudo apt install -y git curl wget sudo python3 python3-pip
 sudo git clone  https://github.com/ceph/ceph.git
-cd  /ceph
+cd  ceph
 sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
-sudo  apt install -y python
+
 sudo  admin/build-doc
 sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 sudo   mv cephadm build-doc
 
-cd /
+cd ..
 
 
 

@@ -35,9 +35,9 @@ cd  ceph
 sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
 sudo  admin/build-doc
 
-mv   admin/build-doc/output ceph-build-docs/ceph-output
+mv   admin/build-doc/output ../ceph-build-docs/ceph-output
 sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
-sudo  mv cephadm ceph-build-docs/ceph-output/
+sudo  mv cephadm ../ceph-build-docs/ceph-output/
 cd ..
 sh ceph-build-docs/docker-build.sh
 

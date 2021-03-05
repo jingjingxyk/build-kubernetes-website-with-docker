@@ -9,8 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-
-    # actions/checkout@v2 
+    - uses: actions/checkout@v2
     - name: Get Need File
       run: sh build-docker.sh
       env:

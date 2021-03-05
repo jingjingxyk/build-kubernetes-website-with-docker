@@ -5,4 +5,4 @@ image="wenba100xie/ceph-docs:${day}"
 export DOCKER_BUILDKIT=1
 docker build -t ${image}  -f Dockerfile .
 docker push ${image}
-docker system prune -a
+#docker system prune -a

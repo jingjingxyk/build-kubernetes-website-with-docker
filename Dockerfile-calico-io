@@ -2,7 +2,7 @@ FROM ruby:latest
 
 ADD calico /calico
 WORKDIR /calico
-RUN apk add gcc make cmake git curl wget
+RUN apt install -y gcc make cmake git curl wget
 RUN gem install bundler
 RUN gem install jekyll
 RUN bundle install

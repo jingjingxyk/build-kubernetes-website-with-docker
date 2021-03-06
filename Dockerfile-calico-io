@@ -1,9 +1,10 @@
-FROM ruby:alpine
+FROM ruby:latest
 
 ADD calico /calico
 WORKDIR /calico
 RUN apk add gcc make cmake git curl wget
-RUN gem install bundler jekyll
+RUN gem install bundler
+RUN gem install jekyll
 RUN bundle install
 RUN bundle exec jekyll build
 

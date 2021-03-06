@@ -98,9 +98,11 @@ curl https://docs.projectcalico.org/manifests/calico.yaml -O
 # metrics-server
 wget -O metrics-server-components-v0.4.2.yaml https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.2/components.yaml
 
-curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
-#curl -O -L  https://github.com/projectcalico/calicoctl/releases/download/v3.17.0/calicoctl-linux-amd64
-wget https://github.com/goharbor/harbor/releases/download/v2.1.1/harbor-online-installer-v2.1.1.tgz
+#curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
+#harbor
+wget https://github.com/goharbor/harbor/releases/download/v2.2.0/harbor-online-installer-v2.2.0.tgz
+
+#symfony
 wget https://github.com/symfony/cli/releases/download/v4.21.2/symfony_linux_amd64.gz
 
 docker pull k8s.gcr.io/metrics-server/metrics-server:v0.4.2
@@ -155,8 +157,8 @@ echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
 
-docker build -t 'wenba100xie/kubernetes-website:latest' -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
-docker push 'wenba100xie/kubernetes-website:latest'
+docker build -t "wenba100xie/kubernetes-website:${VERSION}" -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
+docker push "wenba100xie/kubernetes-website:${VERSION}"
 
 
 #k8s-need-docker-to-tar

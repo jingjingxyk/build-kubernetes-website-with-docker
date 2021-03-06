@@ -11,15 +11,16 @@ jobs:
     steps:
     - name: checkout code
       uses: actions/checkout@v2
-    - name: excute build
-      run:
-          -/bin/sh
-          - -c
-          - |
-            sh build-prepare.sh
-            sh build-docker.sh
-            echo 'start soft wiki mirror build'
-            sh build-soft-wiki.sh
+    - name: "step-1: prepare"
+      run: sh build-prepare.sh
+    - name: "step-2: build  kubernetes and tools"
+      run:  sh build-docker.sh
+      env:
+          DOCKER_PASSWORD: ${{ secrets.docker_password }}
+          DOCKER_USER: ${{secrets.docker_user}}
+          DOCKER_IMAGE: ${{secrets.docker_image}}
+    - name: "step-3: build soft wiki"
+      run:  sh build-soft-wiki.sh
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}
         DOCKER_USER: ${{secrets.docker_user}}

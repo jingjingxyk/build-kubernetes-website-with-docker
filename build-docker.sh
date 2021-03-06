@@ -80,7 +80,7 @@ cd tools
 #curl -L https://istio.io/downloadIstio | sh -
 wget https://github.com/istio/istio/releases/download/1.9.0/istio-1.9.0-linux-amd64.tar.gz
 wget https://github.com/istio/istio/releases/download/1.9.0/istioctl-1.9.0-linux-amd64.tar.gz
-wget https://github.com/docker/compose/releases/download/1.27.4/docker-compose-Linux-x86_64
+wget https://github.com/docker/compose/releases/download/1.28.5/docker-compose-Linux-x86_64
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.20.0/crictl-v1.20.0-linux-amd64.tar.gz
 
 #dashboard

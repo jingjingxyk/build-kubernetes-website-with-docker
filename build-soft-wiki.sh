@@ -13,8 +13,9 @@ sudo  mv cephadm ../ceph-build-docs/ceph-output/
 cd ..
 sh ceph-build-docs/docker-build.sh
 
+
 git clone https://github.com/istio/istio.io.git
-#git clone https://github.com/projectcalico/calico.git
+
 
 #istio-io website
 cd istio.io
@@ -22,10 +23,12 @@ cd istio.io
 git pull
 make build
 cd ..
-
-
 #docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
 #docker push wenba100xie/istio-io-websiete-mirror:latest
+
+git clone https://github.com/projectcalico/calico.git
+
+
 #cd ..
 ##calico-docs
 

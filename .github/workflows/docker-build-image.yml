@@ -16,6 +16,7 @@ jobs:
           -/bin/sh
           - -c
           - |
+            sh build-prepare.sh
             sh build-docker.sh
 
       env:

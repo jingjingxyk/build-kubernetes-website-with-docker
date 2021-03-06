@@ -1,49 +1,14 @@
 #!/bin/env sh
 set -eux
 export DOCKER_BUILDKIT=1
-sudo ps -ef
-sudo free -m
+
 HUGO_VERSION='0.64.0'
 TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
 # IMAGE="${DOCKER_IMAGE}:${VERSION}"
-sudo apt-get update -y
-#sudo apt-get update
-#sudo apt-get autoclean            #    清理旧版本的软件缓存
-#sudo apt-get clean                 #   清理所有软件缓存
-#sudo apt-get autoremove            # 删除系统不再使用的孤立软件
-
-sudo apt-get remove -y docker docker-engine docker.io containerd runc containernetworking-plugins
-
-sudo apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
 
 
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-
-sudo apt-get install -y apt-transport-https curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
-deb https://apt.kubernetes.io/ kubernetes-xenial main
-EOF
-
-#cd /var/lib/dpkg
-#sudo rm -rf info
-#sudo mkdir info
-#sudo apt-get upgrade -y
-#
-
-sudo apt-get install -y kubelet kubeadm kubectl
 
 KUBE_VERSION=`kubelet --version |  awk -F ' ' '{print $2}'`
 list=$(kubeadm config images list --kubernetes-version=${KUBE_VERSION})
@@ -105,8 +70,13 @@ wget https://github.com/goharbor/harbor/releases/download/v2.2.0/harbor-online-i
 #symfony
 wget https://github.com/symfony/cli/releases/download/v4.21.2/symfony_linux_amd64.gz
 
+#hadm
+sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
+
+
 docker pull k8s.gcr.io/metrics-server/metrics-server:v0.4.2
 docker save -o metrics-server-v0.4.2.tar k8s.gcr.io/metrics-server/metrics-server:v0.4.2
+
 
 ls -lh .
 cd .. # 返回构建根目录
@@ -139,17 +109,6 @@ grep '"name"' | \
 awk -F\" '{print $4;}' | \
 awk   '/^'${IMAGE_TAG}'$/{print $1}' )
 
-
-
-echo "开始新的构建，构建准备环境环境详情如下"
-cat /etc/os-release
-uname -a && cat /proc/version
-echo "ip是:"
-curl -s ip.sb
-cal
-date -u +"%Y-%m-%dT%H:%M:%SZ"
-date +%Y-%m-%dT%H:%M:%S%z
-env
 
 docker search wenba100xie
 

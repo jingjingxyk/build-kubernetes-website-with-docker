@@ -29,4 +29,5 @@ jobs:
         DOCKER_USER: ${{secrets.docker_user}}
         DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
         DOCKER_IMAGE: ${{secrets.docker_image}}
-
+    - name: "step-4 clean workspace"
+      run: sh clean.sh

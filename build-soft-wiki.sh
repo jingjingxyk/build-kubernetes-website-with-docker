@@ -25,7 +25,7 @@ make build
 cd ..
 #docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
 #docker push wenba100xie/istio-io-websiete-mirror:latest
-
+# ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:"
 git clone https://github.com/projectcalico/calico.git
 
 

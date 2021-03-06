@@ -15,7 +15,7 @@ sudo mv   ./build-doc/output ../ceph-build-docs/ceph-output
 cd ..
 cd ceph-build-docs
 sh docker-build.sh
-
+cd ..
 
 git clone https://github.com/istio/istio.io.git
 

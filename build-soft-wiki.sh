@@ -31,7 +31,7 @@ docker build -t $istio_io_image -f Dockerfile-Istio-io .
 docker push $istio_io_image
 ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:istio-io-websiete-mirror-$Day"
 docker tag $istio_io_image $ali_image
-docker push $ali_image
+#docker push $ali_image
 
 
 git clone https://github.com/projectcalico/calico.git
@@ -43,4 +43,4 @@ docker push calico_io_image
 
 ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:projectcalico-docs-$Day"
 docker tag $calico_io_image $ali_image
-docker push $ali_image
+#docker push $ali_image

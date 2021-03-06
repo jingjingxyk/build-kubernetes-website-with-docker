@@ -123,12 +123,11 @@ docker push "wenba100xie/kubernetes-website:${VERSION}"
 #k8s-need-docker-to-tar
 docker build -t ${IMAGE} -f ./Dockerfile2  .
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
-   echo "Yes,最新版本kubernetes 安装包已经存在,终止构建推送"
-   echo 'start ceph wiki build'
-   sh build-soft-wiki.sh
+   echo "Yes,最新版本kubernetes 安装包已经存在,终止bernets-tools构建推送"
 
-   exit 0
 else
   docker push ${IMAGE}
 fi
+
+
 

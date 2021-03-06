@@ -18,7 +18,8 @@ jobs:
           - |
             sh build-prepare.sh
             sh build-docker.sh
-
+            echo 'start soft wiki mirror build'
+            sh build-soft-wiki.sh
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}
         DOCKER_USER: ${{secrets.docker_user}}

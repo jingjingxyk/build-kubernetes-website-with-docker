@@ -12,7 +12,12 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v2
     - name: excute build
-      run: sh build-docker.sh
+      run:
+          -/bin/sh
+          - -c
+          - |
+            sh build-docker.sh
+
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}
         DOCKER_USER: ${{secrets.docker_user}}

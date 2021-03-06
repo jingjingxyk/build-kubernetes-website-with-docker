@@ -112,9 +112,6 @@ awk   '/^'${IMAGE_TAG}'$/{print $1}' )
 
 docker search wenba100xie
 
-echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
-
-echo "${DOCKER_ALI_PASSWORD}" | docker login  -u ${DOCKER_ALI_USER}  registry.cn-beijing.aliyuncs.com --password-stdin
 
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
 

@@ -48,3 +48,7 @@ EOF
 #
 
 sudo apt-get install -y kubelet kubeadm kubectl
+
+echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
+
+echo "${DOCKER_ALI_PASSWORD}" | docker login  -u ${DOCKER_ALI_USER}  registry.cn-beijing.aliyuncs.com --password-stdin

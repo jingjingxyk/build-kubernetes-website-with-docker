@@ -116,8 +116,8 @@ echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 
 #docker build -t ${IMAGE} -f ./Dockerfile  .  --force-rm=true --no-cache=true --pull=true
 
-docker build -t "wenba100xie/kubernetes-website:${VERSION}" -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
-docker push "wenba100xie/kubernetes-website:${VERSION}"
+docker build -t "wenba100xie/kubernetes-website:wiki-${VERSION}" -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
+docker push "wenba100xie/kubernetes-website:wiki-${VERSION}"
 
 
 #k8s-need-docker-to-tar

@@ -7,7 +7,7 @@ cd  ceph
 sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
 sudo  admin/build-doc
 
-ls  -lh  .
+ls  -lh  ./build-doc
 mv   ./build-doc/output ../ceph-build-docs/ceph-output
 
 cd ..

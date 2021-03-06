@@ -17,12 +17,16 @@ jobs:
       run:  sh build-docker.sh
       env:
           DOCKER_PASSWORD: ${{ secrets.docker_password }}
+          DOCKER_ALI_PASSWORD: ${{ secrets.docker_ali_password }}
           DOCKER_USER: ${{secrets.docker_user}}
+          DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
           DOCKER_IMAGE: ${{secrets.docker_image}}
     - name: "step-3: build soft wiki"
       run:  sh build-soft-wiki.sh
       env:
         DOCKER_PASSWORD: ${{ secrets.docker_password }}
+        DOCKER_ALI_PASSWORD: ${{ secrets.docker_ali_password }}
         DOCKER_USER: ${{secrets.docker_user}}
+        DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
         DOCKER_IMAGE: ${{secrets.docker_image}}
 

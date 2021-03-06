@@ -1,6 +1,8 @@
 #!/bin/env bash
 set -eux
 
+Day=`date "+%Y%m%d"`
+
 sudo apt install -y git curl wget sudo python3 python3-pip
 sudo git clone  https://github.com/ceph/ceph.git
 cd  ceph
@@ -24,15 +26,21 @@ cd istio.io
 git pull
 make build
 cd ..
-#docker build -t docker.io/wenba100xie/istio-io-websiete-mirror -f Dockerfile-Istio-io .
-#docker push wenba100xie/istio-io-websiete-mirror:latest
-# ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:"
+istio_io_image="docker.io/wenba100xie/istio-io-websiete-mirror:$Day";
+docker build -t $istio_io_image -f Dockerfile-Istio-io .
+docker push $istio_io_image
+ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:istio-io-websiete-mirror-$Day"
+docker tag $istio_io_image $ali_image
+docker push $ali_image
+
+
 git clone https://github.com/projectcalico/calico.git
 
-
-#cd ..
 ##calico-docs
+calico_io_image="docker.io/wenba100xie/projectcalico-docs:$Day";
+docker build -t $calico_io_image -f Dockerfile-calico-io .
+docker push calico_io_image
 
-#docker build -t docker.io/wenba100xie/projectcalico-docs:latest -f Dockerfile-calico-io .
-#docker push wenba100xie/projectcalico-docs:latest:latest
-
+ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:projectcalico-docs-$Day"
+docker tag $calico_io_image $ali_image
+docker push $ali_image

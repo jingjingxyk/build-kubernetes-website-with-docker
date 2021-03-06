@@ -6,10 +6,9 @@ sudo git clone  https://github.com/ceph/ceph.git
 cd  ceph
 sudo  sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
 sudo  admin/build-doc
-ls  -lh  admin
+
 ls  -lh  .
-exit 0
-mv   admin/build-doc/output ../ceph-build-docs/ceph-output
+mv   ./build-doc/output ../ceph-build-docs/ceph-output
 
 cd ..
 sh ceph-build-docs/docker-build.sh

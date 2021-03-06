@@ -7,5 +7,5 @@ export DOCKER_BUILDKIT=1
 docker build -t ${image}  -f Dockerfile .
 docker push ${image}
 docker tag $image $ali_image
-docker push $ali_image
+#docker push $ali_image
 

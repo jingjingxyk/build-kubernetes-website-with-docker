@@ -11,6 +11,7 @@ ls  -lh  ./build-doc
 sudo mv   ./build-doc/output ../ceph-build-docs/ceph-output
 
 cd ..
+cd ceph-build-docs
 sh ceph-build-docs/docker-build.sh
 
 

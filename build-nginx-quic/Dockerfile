@@ -27,6 +27,7 @@ RUN ./auto/configure \
 --with-http_v3_module       \
 --with-http_quic_module \
 --with-stream_quic_module \
+--with-http_ssl_module \
 --with-cc-opt="-I../boringssl/include"   \
 --with-ld-opt="-L../boringssl/build/ssl  \
               -L../boringssl/build/crypto"
@@ -35,5 +36,5 @@ RUN make && make install
 
 RUN apt remove -y cmake ninja-build golang mercurial
 
-ENV PATH=$PATH:/usr/local/sbin
+ENV PATH=$PATH:/usr/local/nginx/sbin/
 CMD ['nginx' , '-g' , "daemon off;"]

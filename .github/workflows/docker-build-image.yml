@@ -19,15 +19,15 @@ jobs:
           DOCKER_USER: ${{secrets.docker_user}}
           DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
           DOCKER_IMAGE: ${{secrets.docker_image}}
-#    - name: "step-2: build kubernetes tools"
-#      run:  sh build-kubernetes-tools.sh
-#    - name: "step-3: build ceph  wiki"
-#      run:  sh build-ceph-io-wiki.sh
-#    - name: "step-4: build istio  wiki"
-#      run:  sh build-istio-io-weiki.sh
-    - name: "step-5: build calico  wiki"
+    - name: "step-2: build kubernetes tools"
+      run:  sh build-kubernetes-tools.sh
+    - name: "step-3: build istio  wiki"
+      run:  sh build-istio-io-wiki.sh
+    - name: "step-4: build calico  wiki"
       run:  sh build-calico-docs.sh
-#    - name: "step-6: build nginx-quick  wiki"
-#      run:  sh build-nginx-quick-http3.sh
+    - name: "step-5: build nginx-quick  wiki"
+      run:  sh build-nginx-quick-http3.sh
+    - name: "step-6: build ceph  wiki"
+    - run: sh build-ceph-io-wiki.sh
     - name: "step-last clean workspace"
       run: sh clean.sh

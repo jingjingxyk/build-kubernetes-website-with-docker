@@ -1,6 +1,6 @@
 #!/bin/env sh
 
-
+day=`date "+%Y%m%d"`
 istio_io_image="docker.io/wenba100xie/istio-io-websiete-mirror:$day";
 
 docker build -t $istio_io_image -f Dockerfile .

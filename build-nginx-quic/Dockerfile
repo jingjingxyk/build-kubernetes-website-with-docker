@@ -23,7 +23,7 @@ RUN hg clone -b quic https://hg.nginx.org/nginx-quic
 WORKDIR /nginx-quic
 # cd nginx-quic
 RUN ./auto/configure \
- --with-debug\
+ --with-debug \
 --with-http_v3_module       \
 --with-http_quic_module \
 --with-stream_quic_module \

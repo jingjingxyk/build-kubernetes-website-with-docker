@@ -126,7 +126,7 @@ docker tag "wenba100xie/kubernetes-website:wiki-${VERSION}" $aliyun_image
 docker build -t ${IMAGE} -f ./Dockerfile2  .
 if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
    echo "Yes,最新版本kubernetes 安装包已经存在,终止bernets-tools构建推送"
-
+   exit 0
 else
   docker push ${IMAGE}
   aliyun_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:kubernetes-website-${IMAGE_TAG}";

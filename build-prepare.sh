@@ -11,7 +11,7 @@ curl -s ip.sb
 cal
 date -u +"%Y-%m-%dT%H:%M:%SZ"
 date +%Y-%m-%dT%H:%M:%S%z
-env
+#env
 
 sudo apt-get update -y
 #sudo apt-get update
@@ -20,6 +20,8 @@ sudo apt-get update -y
 #sudo apt-get autoremove            # 删除系统不再使用的孤立软件
 
 sudo apt-get remove -y docker docker-engine docker.io containerd runc containernetworking-plugins
+
+sudo apt install -y git curl wget sudo python3 python3-pip
 
 sudo apt-get install -y \
     apt-transport-https \
@@ -48,6 +50,8 @@ EOF
 #
 
 sudo apt-get install -y kubelet kubeadm kubectl
+
+
 
 echo "${DOCKER_PASSWORD}" | docker login  -u ${DOCKER_USER} --password-stdin
 

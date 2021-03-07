@@ -36,6 +36,6 @@ RUN ./auto/configure \
 RUN make && make install
 
 RUN apt remove -y cmake ninja-build golang mercurial
-
+WORKDIR /
 ENV PATH=$PATH:/usr/local/nginx/sbin/
 CMD ['nginx' , '-g' , "daemon off;"]

@@ -117,9 +117,10 @@ docker search wenba100xie
 
 docker build -t "wenba100xie/kubernetes-website:wiki-${VERSION}" -f ./Dockerfile  .    --build-arg HUGO_VERSION=${HUGO_VERSION}
 docker push "wenba100xie/kubernetes-website:wiki-${VERSION}"
+
 aliyun_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:kubernetes-website-wiki-${VERSION}";
 docker tag "wenba100xie/kubernetes-website:wiki-${VERSION}" $aliyun_image
-#docker push $aliyun_image
+docker push $aliyun_image
 
 
 #k8s-need-docker-to-tar
@@ -130,7 +131,7 @@ if [ "$old_build_tag" = "${IMAGE_TAG}" ];then
 else
   docker push ${IMAGE}
   aliyun_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:kubernetes-website-${IMAGE_TAG}";
-#  docker push $aliyun_image
+  docker push $aliyun_image
 fi
 
 

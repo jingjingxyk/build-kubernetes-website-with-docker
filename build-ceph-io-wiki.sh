@@ -15,5 +15,4 @@ sudo mv   ./build-doc/output ../ceph-build-docs/ceph-output
 # start build ceph docs with docker
 cd ..
 cd ceph-build-docs
-sh docker-build.sh
-cd ..
+sh build.sh

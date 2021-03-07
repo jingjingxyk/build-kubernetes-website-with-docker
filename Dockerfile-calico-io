@@ -6,7 +6,7 @@ RUN apt update -y
 RUN apt install -y gcc make cmake git curl wget
 RUN gem install bundler
 RUN gem install jekyll
-#RUN bundle install
+RUN bundle install
 RUN bundle exec jekyll build
 
 

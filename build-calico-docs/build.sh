@@ -12,4 +12,4 @@ docker push $calico_io_image
 
 ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:calico-docs-$day"
 docker tag $calico_io_image $ali_image
-docker push $ali_image
+#docker push $ali_image

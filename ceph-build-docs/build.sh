@@ -9,4 +9,4 @@ docker push $image
 
 ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:ceph-docs-${day}"
 docker tag $image $ali_image
-docker push $ali_image
+#docker push $ali_image

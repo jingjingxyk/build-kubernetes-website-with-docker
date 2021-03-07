@@ -8,7 +8,7 @@ Day=`date "+%Y%m%d"`
 
 
 ##calico-docs
-calico_io_image="docker.io/wenba100xie/projectcalico-docs:$Day";
+calico_io_image="docker.io/wenba100xie/calico-docs:$Day";
 docker build -t $calico_io_image -f Dockerfile-calico-io .
 docker push calico_io_image
 

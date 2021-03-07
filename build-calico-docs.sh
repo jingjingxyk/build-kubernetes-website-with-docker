@@ -4,9 +4,17 @@ set -eux
 Day=`date "+%Y%m%d"`
 
 
+apt install -y gcc make cmake git curl wget
+#ADD calico /calico
+git clone https://github.com/projectcalico/calico.git
+cd calico
+make build
+#gem install bundler jekyll
 
+#RUN bundle install
+#RUN bundle exec jekyll build
 
-
+exit 0;
 ##calico-docs
 calico_io_image="docker.io/wenba100xie/calico-docs:$Day";
 docker build -t $calico_io_image -f Dockerfile-calico-io .

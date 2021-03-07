@@ -1,0 +1,86 @@
+html {
+    font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 414px) {
+    html {
+        font-size: 1.06rem;
+    }
+}
+
+@media (max-width: 375px) {
+    html {
+        font-size: 1rem;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+p {
+    margin: 0;
+
+}
+a:active, a:hover, a:link, a:visited {
+    color: #3EAAB1;
+    color: #31c27c;
+}
+
+a {
+
+    color: #c5955d;;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+h1 {
+    margin: auto;
+    color: #c5955d;;
+}
+
+h2 {
+    padding: 0.5rem;
+}
+
+.content-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*
+    align-items: center;
+    */
+    background-color: #f5f5f5;
+
+    margin: 0;
+    padding: 0;
+}
+
+.box {
+    border: .5px solid #ddd;
+    border-radius: 0.82rem;
+    box-shadow: 0 1px 1px rgba(3, 3, 3, .175);
+    word-wrap: break-word;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px #daf5fe;
+    /*
+    margin-bottom: 1.5rem !important;
+
+     */
+    padding: 0.1rem;
+}
+
+li{
+    list-style: korean-hanja-informal;
+}

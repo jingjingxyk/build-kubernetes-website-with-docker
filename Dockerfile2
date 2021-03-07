@@ -1,5 +1,6 @@
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 ADD ./tools /usr/share/nginx/html/
-RUN ls /usr/share/nginx/html/ > /usr/share/nginx/html/soft-list.txt
+# RUN ls /usr/share/nginx/html/ > /usr/share/nginx/html/soft-list.txt
+RUN ls -al /usr/share/nginx/html/ | grep "^-" | awk '{print $9}' >  soft-list.txt
 ADD ./default.conf /etc/nginx/conf.d/default.conf

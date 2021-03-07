@@ -28,6 +28,6 @@ jobs:
     - name: "step-5: build nginx-quick  wiki"
       run:  sh build-nginx-quick-http3.sh
     - name: "step-6: build ceph  wiki"
-    - run: sh build-ceph-io-wiki.sh
+      run: sh build-ceph-io-wiki.sh
     - name: "step-last clean workspace"
       run: sh clean.sh

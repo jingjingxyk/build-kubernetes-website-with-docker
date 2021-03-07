@@ -5,7 +5,7 @@ Day=`date "+%Y%m%d"`
 
 
 
-git clone https://github.com/projectcalico/calico.git
+
 
 ##calico-docs
 calico_io_image="docker.io/wenba100xie/projectcalico-docs:$Day";

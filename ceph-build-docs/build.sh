@@ -1,6 +1,7 @@
 #!/bin/bash
-day=`date "+%Y%m%d"`
+
 day=`date "+%Y%m%d%H%M"`
+day=`date "+%Y%m%d"`
 image="wenba100xie/ceph-docs:${day}"
 export DOCKER_BUILDKIT=1
 docker build -t $image  -f Dockerfile .

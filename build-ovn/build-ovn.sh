@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 set -eux
-
+sudo  su -
 apt install -y  \
 gcc clang make cmake autoconf automake openssl python3 python3-pip unbound libtool  netcat curl  graphviz
 #apt install -y openvswitch-switch openvswitch-common

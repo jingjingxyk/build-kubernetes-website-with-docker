@@ -41,10 +41,15 @@ mv "kubernetes-${KUBE_VERSION}.tar.gz" tools
 
 cd tools
 
+# ovn
+git clone https://github.com/ovn-org/ovn.git
+git clone https://github.com/openvswitch/ovs.git
 
+# istio
 #curl -L https://istio.io/downloadIstio | sh -
 wget https://github.com/istio/istio/releases/download/1.9.0/istio-1.9.0-linux-amd64.tar.gz
 wget https://github.com/istio/istio/releases/download/1.9.0/istioctl-1.9.0-linux-amd64.tar.gz
+# docker-compose
 wget https://github.com/docker/compose/releases/download/1.28.5/docker-compose-Linux-x86_64
 wget https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.20.0/crictl-v1.20.0-linux-amd64.tar.gz
 
@@ -70,7 +75,7 @@ wget https://github.com/goharbor/harbor/releases/download/v2.2.0/harbor-online-i
 #symfony
 wget https://github.com/symfony/cli/releases/download/v4.21.2/symfony_linux_amd64.gz
 
-#hadm
+#cephadm
 sudo curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm
 
 

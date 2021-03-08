@@ -31,7 +31,7 @@ jobs:
       run: sh build-ceph-io-wiki.sh
     - name: "step-7: build freeswitch-v1-x"
       run: sh build-freeswitch-v1-x.sh
-    - name: "step-8: build ovn"
-      run: sh build-ovn.sh
+#    - name: "step-8: build ovn"
+#      run: sh build-ovn.sh
     - name: "step-last clean workspace"
       run: sh clean.sh

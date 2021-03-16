@@ -19,6 +19,8 @@ jobs:
           DOCKER_USER: ${{secrets.docker_user}}
           DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
           DOCKER_IMAGE: ${{secrets.docker_image}}
+    - name: "step-10: build-janus-server"
+      run: sh buid-janus-server.sh
     - name: "step-9: build ovn"
       run: sh build-ovn.sh
     - name: "step-8: build developer.chrome.com"

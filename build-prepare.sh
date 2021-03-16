@@ -13,6 +13,7 @@ date -u +"%Y-%m-%dT%H:%M:%SZ"
 date +%Y-%m-%dT%H:%M:%S%z
 #env
 
+sudo apt-get autoremove
 sudo apt-get update -y
 #sudo apt-get update
 #sudo apt-get autoclean            #    清理旧版本的软件缓存

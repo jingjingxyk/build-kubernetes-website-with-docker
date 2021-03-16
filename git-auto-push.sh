@@ -12,8 +12,8 @@ GIT_REVISION=`git log -1 --pretty=format:"%h"`
 version=${TIME}_${GIT_REVISION}
 tag_name=release-v${version}
 
-hostname
-env
+#hostname
+#env
 
 ls -al | grep "^-" | awk '{print $9}'
 exit 0

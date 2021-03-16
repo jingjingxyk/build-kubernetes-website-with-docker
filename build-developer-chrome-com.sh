@@ -9,7 +9,7 @@ apk add curl git wget
 git clone https://github.com/GoogleChrome/developer.chrome.com.git
 cd developer.chrome.com
 if [ -d node_modules ] ;then rm -rf node_modules; fi
-npm install  -ddd
+npm install  -d
 npm run production
 cp -r dist/en/* dist/
 "

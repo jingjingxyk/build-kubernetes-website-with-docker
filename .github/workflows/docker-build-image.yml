@@ -19,8 +19,12 @@ jobs:
           DOCKER_USER: ${{secrets.docker_user}}
           DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
           DOCKER_IMAGE: ${{secrets.docker_image}}
+    - name: "step-11: build-coturn-server"
+      run: sh build-coturn-server.sh
+    - name: "clean5 workspace"
+      run: sh clean.sh
     - name: "step-10: build-janus-server"
-      run: sh buid-janus-server.sh
+      run: sh build-janus-server.sh
     - name: "clean4 workspace"
       run: sh clean.sh
     - name: "step-9: build ovn"

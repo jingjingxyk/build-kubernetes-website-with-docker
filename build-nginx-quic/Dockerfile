@@ -1,41 +1,54 @@
-FROM debian:buster
-# 启动非交互模式：
-ENV DEBIAN_FRONTEND=noninteractive
+FROM centos:7
+RUN curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+RUN curl -o /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 
-WORKDIR /
-RUN set -eux ;\
-apt update -y ;\
-apt install -y \
-git wget curl ca-certificates bzip2 gawk    mercurial;
-RUN apt install -y openssl cmake ninja-build golang
+#RUN wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+RUN sed -i -e '/mirrors.cloud.aliyuncs.com/d' -e '/mirrors.aliyuncs.com/d' /etc/yum.repos.d/CentOS-Base.repo
+RUN yum makecache
+#RUN yum update -y
 
-RUN git clone https://github.com/google/boringssl.git
-WORKDIR /boringssl
-RUN mkdir build
-#cd build
-WORKDIR /boringssl/build
-RUN cmake -DCMAKE_BUILD_TYPE=Release -GNinja ..
-RUN ninja
+RUN yum install -y \
+ca-certificates \
+git wget curl \
+gcc \
+openssl-devel \
+sqlite \
+sqlite-devel \
+libevent \
+libevent-devel \
+postgresql-devel \
+mysql-devel
 
-WORKDIR /
-RUN apt install -y openssl libssl-dev   libpcre3 libpcre3-dev zlib1g-dev
-RUN hg clone -b quic https://hg.nginx.org/nginx-quic
-WORKDIR /nginx-quic
-# cd nginx-quic
-RUN ./auto/configure \
- --with-debug \
---with-http_v3_module       \
---with-http_v2_module  \
---with-http_quic_module \
---with-stream_quic_module \
---with-http_ssl_module \
---with-cc-opt="-I../boringssl/include"   \
---with-ld-opt="-L../boringssl/build/ssl  \
-              -L../boringssl/build/crypto"
+RUN yum install -y \
+epel \
+mongo-c-driver  libbson \
+hiredis \
+hiredis-devel
+RUN yum install -y make cmake g++
+RUN yum -y install initscripts net-tools
 
-RUN make && make install
+#ENV BUILD_PREFIX /usr/local/src
+#RUN git clone https://github.com/coturn/coturn.git
+ADD ./coturn /coturn
+# Build Coturn
+WORKDIR coturn
+RUN ./configure
+RUN make
+RUN make install
 
-RUN apt remove -y cmake ninja-build golang mercurial
-WORKDIR /
-ENV PATH=$PATH:/usr/local/nginx/sbin/
-CMD ['nginx' , '-g' , "daemon off;"]
+
+# set startup parameters
+# SUTN/TURN PORTS
+EXPOSE 3478 3479 3478/udp 3479/udp 80 80/udp
+EXPOSE 5349 5350 5349/udp 5350/udp 443 443/udp
+# CLI
+EXPOSE 5766
+# Relay Ports
+EXPOSE 49152-65535 49152-65535/udp
+
+#COPY ./docker-entrypoint.sh /
+#ENTRYPOINT ["/docker-entrypoint.sh"]
+
+#WORKDIR ${INSTALL_PREFIX}
+#CMD ${INSTALL_PREFIX}/bin/turnserver
+

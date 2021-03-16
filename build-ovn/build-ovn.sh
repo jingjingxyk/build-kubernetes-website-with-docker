@@ -1,7 +1,6 @@
 #!/bin/env bash
 
 set -eux
-sudo  su -
 apt install -y  \
 gcc clang make cmake autoconf automake openssl python3 python3-pip unbound libtool  netcat curl  graphviz
 #apt install -y openvswitch-switch openvswitch-common
@@ -15,7 +14,7 @@ cd build
 ../configure
 make
 make install
-
+cd ../..
 # /usr/local/bin/
 #libtool: install: /usr/bin/install -c utilities/ovs-appctl /usr/local/bin/ovs-appctl
 #libtool: install: /usr/bin/install -c utilities/ovs-testcontroller /usr/local/bin/ovs-testcontroller

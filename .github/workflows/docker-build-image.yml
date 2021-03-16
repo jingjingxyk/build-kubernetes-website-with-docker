@@ -19,10 +19,10 @@ jobs:
           DOCKER_USER: ${{secrets.docker_user}}
           DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
           DOCKER_IMAGE: ${{secrets.docker_image}}
-    - name: "step-9: build developer.chrome.com"
+    - name: "step-9: build ovn"
+      run: sh build-ovn.sh
+    - name: "step-8: build developer.chrome.com"
       run: sh build-developer-chrome-com.sh
-    - name: "step-2: build kubernetes tools"
-      run:  sh build-kubernetes-tools.sh
     - name: "step-3: build istio  wiki"
       run:  sh build-istio-io-wiki.sh
     - name: "step-4: build calico  wiki"
@@ -33,8 +33,7 @@ jobs:
       run: sh build-ceph-io-wiki.sh
     - name: "step-7: build freeswitch-v1-x"
       run: sh build-freeswitch-v1-x.sh
-#    - name: "step-8: build ovn"
-#      run: sh build-ovn.sh
-
+    - name: "step-2: build kubernetes tools"
+      run:  sh build-kubernetes-tools.sh
     - name: "step-last clean workspace"
       run: sh clean.sh

@@ -9,7 +9,7 @@ RUN git clone  https://github.com/ceph/ceph.git
 WORKDIR /ceph
 RUN pip3 install sphinxcontrib-ditaa
 RUN apt install -y ditaa
-RUN sh -c '/bin/echo -e "\ny\ny"' | sudo apt-get install `cat doc_deps.deb.txt`
+RUN sh -c '/bin/echo -e "y\ny\n"' | sudo apt-get install `cat doc_deps.deb.txt`
 RUN admin/build-doc
 
 RUN curl --silent --remote-name --location https://github.com/ceph/ceph/raw/octopus/src/cephadm/cephadm

@@ -14,4 +14,7 @@ ls -al | grep "^-"
 
 
  ls -al | grep "^-" | awk '{print $9}' >  soft-list.txt
+
+ # ls | while read line; do  echo $line ;done
+#  i=0 ; while true ;  do  sleep 10 && clear && echo $((i++))  ; done
 ```

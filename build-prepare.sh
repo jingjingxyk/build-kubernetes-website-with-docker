@@ -1,5 +1,5 @@
 #!/bin/env bash
-set -eux
+#set -eux
 
 sudo ps -ef
 sudo free -m
@@ -13,8 +13,16 @@ date -u +"%Y-%m-%dT%H:%M:%SZ"
 date +%Y-%m-%dT%H:%M:%S%z
 #env
 
-sudo apt-get -y  autoremove
-sudo apt-get update -y
+
+{
+  sudo apt-get autoclean
+  sudo apt-get update -y
+
+} || {
+  sudo apt-get -y autoclean            #    清理旧版本的软件缓存
+  sudo apt-get -yclean                 #   清理所有软件缓存
+  sudo apt-get -y autoremove            # 删除系统不再使用的孤立软件
+}
 #sudo apt-get update
 #sudo apt-get autoclean            #    清理旧版本的软件缓存
 #sudo apt-get clean                 #   清理所有软件缓存

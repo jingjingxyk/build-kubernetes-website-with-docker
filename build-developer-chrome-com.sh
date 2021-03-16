@@ -16,4 +16,4 @@ cp -r dist/en/* dist/
 
 cp -r /tmp/developer-chrome-com/developer.chrome.com/dist/  build-developer-chrome-com
 cd build-developer-chrome-com
-sh build-docker.sh
+sh build.sh

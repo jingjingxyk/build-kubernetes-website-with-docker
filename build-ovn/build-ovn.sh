@@ -48,10 +48,10 @@ sudo make install
 
 ##  start the Open vSwitch daemons.
 export PATH=$PATH:/usr/local/share/openvswitch/scripts
-ovs-ctl start
+##ovs-ctl start
 
 ##  Starting OVN Central services
 
 export PATH=$PATH:/usr/local/share/ovn/scripts
-ovn-ctl start_northd
-ovn-ctl start_controller
+##ovn-ctl start_northd
+##ovn-ctl start_controller

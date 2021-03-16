@@ -11,12 +11,12 @@ git push -u origin master
 GIT_REVISION=`git log -1 --pretty=format:"%h"`
 version=${TIME}_${GIT_REVISION}
 tag_name=release-v${version}
-
+exit 0
 #hostname
 #env
 
 ls -al | grep "^-" | awk '{print $9}'
-exit 0
+
 
 
 #!/bin/sh

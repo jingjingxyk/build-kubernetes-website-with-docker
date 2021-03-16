@@ -21,12 +21,16 @@ jobs:
           DOCKER_IMAGE: ${{secrets.docker_image}}
     - name: "step-10: build-janus-server"
       run: sh buid-janus-server.sh
+    - name: "clean4 workspace"
+      run: sh clean.sh
     - name: "step-9: build ovn"
       run: sh build-ovn.sh
     - name: "step-8: build developer.chrome.com"
       run: sh build-developer-chrome-com.sh
     - name: "step-3: build istio  wiki"
       run:  sh build-istio-io-wiki.sh
+    - name: "clean3 workspace"
+      run: sh clean.sh
     - name: "step-4: build calico  wiki"
       run:  sh build-calico-docs.sh
 #    - name: "step-5: build nginx-quick  wiki"
@@ -35,7 +39,9 @@ jobs:
       run: sh build-ceph-io-wiki.sh
     - name: "step-7: build freeswitch-v1-x"
       run: sh build-freeswitch-v1-x.sh
+    - name: "clean2 workspace"
+      run: sh clean.sh
     - name: "step-2: build kubernetes tools"
       run:  sh build-kubernetes-tools.sh
-    - name: "step-last clean workspace"
+    - name: "clean1 workspace"
       run: sh clean.sh

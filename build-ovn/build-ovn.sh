@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 set -eux
-apt install -y  \
+sudo apt install -y  \
 gcc clang make cmake autoconf automake openssl python3 python3-pip unbound libtool  netcat curl  graphviz
 #apt install -y openvswitch-switch openvswitch-common
 #apt remove -y openvswitch-switch openvswitch-common
@@ -13,7 +13,7 @@ mkdir build
 cd build
 ../configure
 make
-make install
+sudo make install
 cd ../..
 # /usr/local/bin/
 #libtool: install: /usr/bin/install -c utilities/ovs-appctl /usr/local/bin/ovs-appctl
@@ -32,7 +32,7 @@ mkdir build
 cd build
 ../configure   --with-ovs-source=../../ovs/ --with-ovs-build=../../ovs/build
 make
-make install
+sudo make install
 
 
 #libtool: install: /usr/bin/install -c utilities/ovn-nbctl /usr/local/bin/ovn-nbctl

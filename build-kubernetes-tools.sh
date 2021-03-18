@@ -43,7 +43,11 @@ cd tools
 
 # ovn
 git clone https://github.com/ovn-org/ovn.git
+tar -czvf ovn.tar.gz ovn
 git clone https://github.com/openvswitch/ovs.git
+tar -czvf ovs.tar.gz ovs
+rm -rf ovn
+rm -rf ovs
 
 # istio
 #curl -L https://istio.io/downloadIstio | sh -

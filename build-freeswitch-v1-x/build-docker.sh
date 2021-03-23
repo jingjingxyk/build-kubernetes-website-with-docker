@@ -8,3 +8,6 @@ IMAGE="wenba100xie/freeswitch:${VERSION}"
 export DOCKER_BUILDKIT=1
 docker build -t ${IMAGE} -f Dockerfile .
 docker push ${IMAGE}
+aliyun_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:freeswitch-debian-10-buster-v1.10.x-${VERSION}";
+docker tag ${IMAGE} $aliyun_image
+#docker push $aliyun_image

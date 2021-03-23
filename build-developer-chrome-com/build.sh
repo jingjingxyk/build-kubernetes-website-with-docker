@@ -12,6 +12,8 @@ docker push $developer_chrome_com_image
 
 ali_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:developer.chrome.com-$day"
 
+docker tag ${IMAGE} $aliyun_image
+
 
 
 docker tag $developer_chrome_com_image $ali_image

@@ -4,7 +4,7 @@ on:
       branches:
         - release
     schedule:
-      - cron: '00 01 1 * *'
+      - cron: '00 19 1 * *'
 jobs:
   build:
     runs-on: ubuntu-20.04

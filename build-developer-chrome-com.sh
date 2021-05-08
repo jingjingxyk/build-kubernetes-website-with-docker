@@ -5,7 +5,7 @@ docker run --rm -v /tmp/developer-chrome-com:/workspace  -w /workspace node:15-a
 /bin/sh -c "
 set -eux
 pwd
-apk add curl git wget
+apk add curl git wget python python3
 git clone https://github.com/GoogleChrome/developer.chrome.com.git
 cd developer.chrome.com
 if [ -d node_modules ] ;then rm -rf node_modules; fi

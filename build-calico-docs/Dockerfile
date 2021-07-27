@@ -12,9 +12,10 @@ RUN make bin/helm
 ENV PATH=$PATH:$(pwd)/bin
 RUN bundle exec    jekyll build --config _config.yml,$(pwd)/netlify/_config_latest.yml --destination _site
 RUN ls -alh _site/
+RUN  cp -R _site/ /site
 
 
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
-COPY --from=0 /calico/_site/* /usr/share/nginx/html/
+COPY --from=0 /site /usr/share/nginx/html/
 COPY ./default.conf /etc/nginx/conf.d/default.conf

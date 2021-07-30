@@ -14,6 +14,7 @@ cd istio.io
 #ls -lah
 git pull
 make build
+wget -O public/robots.txt https://www.xieyaokun.com/robots.txt
 cd ..
 mv istio.io/public/ build-istio-io-docs/
 cd build-istio-io-docs/

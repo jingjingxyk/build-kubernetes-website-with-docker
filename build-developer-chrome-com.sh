@@ -12,6 +12,7 @@ if [ -d node_modules ] ;then rm -rf node_modules; fi
 npm install  -d
 npm run production
 cp -r dist/en/* dist/
+curl -o dist/robots.txt  https://www.xieyaokun.com/robots.txt
 "
 
 cp -r /tmp/developer-chrome-com/developer.chrome.com/dist/  build-developer-chrome-com

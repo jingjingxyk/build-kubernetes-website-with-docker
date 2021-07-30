@@ -10,6 +10,7 @@ sudo  sh -c '/bin/echo -e "y\ny\n"' | sudo apt-get install `cat doc_deps.deb.txt
 sudo  admin/build-doc
 
 ls  -lh  ./build-doc
+wget -O ./build-doc/output/robots.txt https://www.xieyaokun.com/robots.txt
 sudo mv   ./build-doc/output ../ceph-build-docs/ceph-output
 
 # start build ceph docs with docker

@@ -13,7 +13,7 @@ RUN cp netlify/Gemfile Gemfile && bundle install
 RUN bundle exec    jekyll build --config _config.yml,$(pwd)/netlify/_config_latest.yml --destination _site
 RUN ls -alh _site/
 RUN  cp -R _site/ /site
-
+RUN wget -O /site/robots.txt https://www.xieyaokun.com/robots.txt
 
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*

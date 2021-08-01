@@ -27,8 +27,5 @@ git add -A && \
 git commit -m "[`date '+%Y/%m/%d %H:%M'`] Auto update by script" && \
 git push -u origin dev
 #git push -u origin dev  --force && \
-git checkout master
-git merge dev
-git push -u origin master
-git checkout dev
+
 cd ${__CURRENT__}

@@ -27,8 +27,9 @@ WORKDIR /website
 RUN apk add nodejs npm bash
 RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --nightly
 ENV PATH="/root/.yarn/bin:/root/.config/yarn/global/node_modules/.bin:$PATH"
-RUN yarn install 
-RUN git submodule update --init --recursive --depth 1
+RUN yarn install
+#RUN git submodule update --init --recursive --depth 1
+RUN git submodule update --init --recursive
 #RUN git pull --force
 RUN cp -a -R /website/. /src
 WORKDIR /src
@@ -36,6 +37,7 @@ RUN /usr/local/bin/hugo version
 EXPOSE 1313
 RUN  hugo --minify
 #ENTRYPOINT ["/usr/local/bin/hugo", "server","--buildFuture", "--bind", "0.0.0.0"]
+RUN curl -o /src/public/robots.txt https://www.xieyaokun.com/robots.txt
 
 FROM nginx:alpine
 MAINTAINER zonghengbaihe521@qq.com

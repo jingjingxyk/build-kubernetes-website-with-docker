@@ -2,7 +2,7 @@
 set -eux
 export DOCKER_BUILDKIT=1
 
-HUGO_VERSION='0.64.0'
+HUGO_VERSION='0.86.1'
 TIME=`date "+%Y%m%d"`
 # VERSION=${TIME}
 # IMAGE="${DOCKER_IMAGE}:${VERSION}"

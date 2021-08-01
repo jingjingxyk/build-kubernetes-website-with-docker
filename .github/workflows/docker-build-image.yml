@@ -2,7 +2,7 @@ name: kubernetes-website-mirror
 on:
     push:
       branches:
-        - release
+        - dev
     schedule:
       - cron: '00 19 1 * *'
 jobs:

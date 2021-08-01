@@ -4,6 +4,7 @@ on:
       branches:
         - dev
         - release
+        - master
     schedule:
       - cron: '00 19 1 * *'
 jobs:

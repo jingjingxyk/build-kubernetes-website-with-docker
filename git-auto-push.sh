@@ -30,4 +30,5 @@ git push -u origin dev
 git checkout master
 git merge dev
 git push -u origin master
+git checkout dev
 cd ${__CURRENT__}

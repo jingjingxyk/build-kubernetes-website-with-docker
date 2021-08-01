@@ -1,0 +1,25 @@
+name: kubernetes-website-mirror
+on:
+    push:
+      branches:
+        - dev
+    schedule:
+      - cron: '00 19 1 * *'
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 180
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v2
+    - name: "step-1: prepare"
+      run: sh build-prepare.sh
+      env:
+          DOCKER_PASSWORD: ${{ secrets.docker_password }}
+          DOCKER_ALI_PASSWORD: ${{ secrets.docker_ali_password }}
+          DOCKER_USER: ${{secrets.docker_user}}
+          DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
+          DOCKER_IMAGE: ${{secrets.docker_image}}
+    - name: "step-2: build kubernetes tools"
+      run:  sh build-kubernetes-tools.sh
+

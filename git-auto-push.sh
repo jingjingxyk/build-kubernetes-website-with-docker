@@ -25,5 +25,8 @@ __DIR__=$(cd "$(dirname "$0")";pwd)
 cd ${__DIR__} &&
 git add -A && \
 git commit -m "[`date '+%Y/%m/%d %H:%M'`] Auto update by script" && \
+git push --set-upstream origin dev \
+git push --force && \
+git push --set-upstream origin master \
 git push --force && \
 cd ${__CURRENT__}

@@ -22,7 +22,7 @@ jobs:
           DOCKER_ALI_USER: ${{secrets.docker_ali_user}}
           DOCKER_IMAGE: ${{secrets.docker_image}}
     - name: "step-dev: dev test"
-      run: sh build-calico-docs.sh
+      run: sh dev-test.sh
     - name: "step-11: build-coturn-server"
       run: sh build-coturn-server.sh
     - name: "clean5 workspace"

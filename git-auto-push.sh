@@ -9,7 +9,7 @@ cd ${__DIR__} &&
 TIME=`date "+%Y%m%d%H%M"`
 
 git add .
-#git commit -a -m "auto commit  ${TIME}"
+
 git commit -a -m "[`date '+%Y/%m/%d %H:%M'`] Auto update by script"
 git push -u origin dev --force
 
@@ -22,4 +22,9 @@ tag_name=release-v${version}
 
 ls -al | grep "^-" | awk '{print $9}'
 
-
+git checkout master
+git fetch dev
+git merge dev
+git commit -a -m "auto commit  ${TIME}"
+git push -u origin master
+git checkout dev

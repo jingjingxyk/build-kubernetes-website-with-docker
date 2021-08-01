@@ -22,9 +22,3 @@ tag_name=release-v${version}
 
 ls -al | grep "^-" | awk '{print $9}'
 
-git checkout master
-git fetch origin dev
-git merge dev
-git commit -a -m "auto commit  ${TIME}"
-git push -u origin master
-git checkout dev

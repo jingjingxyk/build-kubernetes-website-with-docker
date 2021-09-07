@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+__DIR__=$(cd "$(dirname "$0")";pwd)
+cd ${__DIR__}
+
 set -eux
 sudo apt install -y  \
 gcc clang make cmake autoconf automake openssl python3 python3-pip unbound libtool  netcat curl  graphviz
@@ -14,7 +17,7 @@ cd build
 ../configure
 make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 sudo make install
-cd ../..
+cd ${__DIR__}
 # /usr/local/bin/
 #libtool: install: /usr/bin/install -c utilities/ovs-appctl /usr/local/bin/ovs-appctl
 #libtool: install: /usr/bin/install -c utilities/ovs-testcontroller /usr/local/bin/ovs-testcontroller
@@ -34,7 +37,7 @@ cd build
 make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 sudo make install
 
-
+cd ${__DIR__}
 #libtool: install: /usr/bin/install -c utilities/ovn-nbctl /usr/local/bin/ovn-nbctl
 #libtool: install: /usr/bin/install -c utilities/ovn-sbctl /usr/local/bin/ovn-sbctl
 #libtool: install: /usr/bin/install -c utilities/ovn-ic-nbctl /usr/local/bin/ovn-ic-nbctl

@@ -12,7 +12,7 @@ mkdir build
 ./boot.sh
 cd build
 ../configure
-make
+make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 sudo make install
 cd ../..
 # /usr/local/bin/
@@ -31,7 +31,7 @@ mkdir build
 ./boot.sh
 cd build
 ../configure   --with-ovs-source=../../ovs/ --with-ovs-build=../../ovs/build
-make
+make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 sudo make install
 
 

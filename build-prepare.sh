@@ -31,7 +31,7 @@ date +%Y-%m-%dT%H:%M:%S%z
 sudo apt-get remove -y docker docker-engine docker.io containerd runc containernetworking-plugins
 
 sudo apt install -y git curl wget sudo python3 python3-pip
-
+sudo  pip3 install virtualenv
 sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \

@@ -7,10 +7,11 @@ cd ${__DIR__} &&
 
 
 TIME=`date "+%Y%m%d%H%M"`
-
+TIME=$(date -u +"%Y%m%dT%H%M%SZ")
+#TIME=$(date -u +"%Y%m%dT%H%MZ")
 git add .
 
-git commit -a -m "[`date '+%Y/%m/%d %H:%M'`] Auto update by script"
+git commit -a -m "[`date -u '+%Y-%m-%dT%H:%M:%SZ'`] Auto update by script"
 git push -u origin master --force
 
 GIT_REVISION=`git log -1 --pretty=format:"%h"`

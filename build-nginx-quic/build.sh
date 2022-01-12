@@ -6,7 +6,7 @@ TIME=`date "+%Y%m%d%H%M"`
 VERSION="dev-"${TIME}
 IMAGE="wenba100xie/nginx-quick-http3:${VERSION}"
 
-docker build -t "$IMAGE" -f Dockerfile .
+docker build -t "$IMAGE" -f Dockerfile .  --progress=plain
 docker push "$IMAGE"
 
 

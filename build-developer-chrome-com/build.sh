@@ -6,7 +6,7 @@ day=`date "+%Y%m%d"`
 export DOCKER_BUILDKIT=1
 ##developer.chrome.com
 developer_chrome_com_image="docker.io/wenba100xie/developer.chrome.com:$day";
-docker build -t $developer_chrome_com_image -f Dockerfile .
+docker build -t $developer_chrome_com_image -f Dockerfile . --progress=plain
 
 docker push $developer_chrome_com_image
 

@@ -6,7 +6,7 @@ export DOCKER_BUILDKIT=1
 TIME=`date "+%Y%m%d"`
 VERSION="dev-"${TIME}
 IMAGE="wenba100xie/coturn:${VERSION}"
-docker build -t "$IMAGE" -f Dockerfile .
+docker build -t "$IMAGE" -f Dockerfile . --progress=plain
 docker push "$IMAGE"
 
 aliyun_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:coturn-dev-${VERSION}";

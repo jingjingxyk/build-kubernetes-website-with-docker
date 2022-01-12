@@ -6,7 +6,7 @@ TIME=`date "+%Y%m%d"`
 VERSION=${TIME}
 IMAGE="wenba100xie/janus:${VERSION}"
 
-docker build -t "$IMAGE" -f Dockerfile .
+docker build -t "$IMAGE" -f Dockerfile . --progress=plain
 docker push "$IMAGE"
 
 aliyun_image="registry.cn-beijing.aliyuncs.com/jingjingxyk-public/app:janus-${VERSION}";

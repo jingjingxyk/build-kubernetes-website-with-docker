@@ -33,7 +33,7 @@ RUN ./auto/configure \
 --with-ld-opt="-L../boringssl/build/ssl  \
               -L../boringssl/build/crypto"
 
-RUN make && make install
+RUN make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l` && make install
 
 RUN apt remove -y cmake ninja-build golang mercurial
 WORKDIR /

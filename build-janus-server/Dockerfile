@@ -58,7 +58,7 @@ RUN git clone https://github.com/sctplab/usrsctp
 WORKDIR /tools/usrsctp
 RUN ./bootstrap
 RUN ./configure --prefix=/usr --disable-programs --disable-inet --disable-inet6
-RUN make && sudo make install
+RUN make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l` && sudo make install
 
 WORKDIR /tools/
 RUN git clone https://github.com/warmcat/libwebsockets.git
@@ -72,7 +72,7 @@ WORKDIR /tools/libwebsockets/build
 # See https://github.com/meetecho/janus-gateway/issues/732 re: LWS_MAX_SMP
 # See https://github.com/meetecho/janus-gateway/issues/2476 re: LWS_WITHOUT_EXTENSIONS
 RUN cmake -DLWS_MAX_SMP=1 -DLWS_WITHOUT_EXTENSIONS=0 -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_C_FLAGS="-fpic"  ..
-RUN make && sudo make install
+RUN make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l` && sudo make install
 
 RUN apt install -y libnanomsg-dev
 
@@ -80,7 +80,7 @@ WORKDIR /tools/
 RUN git clone https://github.com/eclipse/paho.mqtt.c.git
 #cd paho.mqtt.c
 WORKDIR /tools/paho.mqtt.c
-RUN make && sudo make install
+RUN make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l` && sudo make install
 
 WORKDIR /tools/
 RUN git clone https://github.com/alanxz/rabbitmq-c
@@ -91,7 +91,7 @@ RUN git submodule update
 RUN mkdir build && cd build
 WORKDIR /tools/rabbitmq-c/build
 RUN cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-RUN make && sudo make install
+RUN make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l` && sudo make install
 
 RUN apt  install -y  graphviz
 RUN apt  install -y  doxygen=1.8.13-*

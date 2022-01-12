@@ -35,7 +35,7 @@ RUN git clone https://github.com/coturn/coturn.git
 # Build Coturn
 WORKDIR ${BUILD_PREFIX}/coturn
 RUN ./configure -h
-RUN make
+RUN make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 RUN make install
 
 

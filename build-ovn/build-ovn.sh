@@ -30,10 +30,8 @@ cd ${__DIR__}
 
 git clone https://github.com/ovn-org/ovn.git
 cd ${__DIR__}/ovn
-mkdir ${__DIR__}/ovn/build
 ./boot.sh
-cd ${__DIR__}/ovn/build
-../configure   --with-ovs-source=${__DIR__}/ovs/ --with-ovs-build=${__DIR__}/ovs/build
+./configure   --with-ovs-source=${__DIR__}/ovs/ --with-ovs-build=${__DIR__}/ovs/build
 make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 sudo make install
 

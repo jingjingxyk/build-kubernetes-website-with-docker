@@ -10,10 +10,10 @@ gcc clang make cmake autoconf automake openssl python3 python3-pip unbound libto
 #apt remove -y openvswitch-switch openvswitch-common
 
 git clone https://github.com/openvswitch/ovs.git
-cd ovs
-mkdir build
+cd ${__DIR__}/ovs
+mkdir ${__DIR__}/ovs/build
 ./boot.sh
-cd build
+cd ${__DIR__}/ovs/build
 ../configure
 make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 sudo make install
@@ -29,11 +29,11 @@ cd ${__DIR__}
 #libtool: install: /usr/bin/install -c vtep/vtep-ctl /usr/local/bin/vtep-ctl
 
 git clone https://github.com/ovn-org/ovn.git
-cd ovn
-mkdir build
+cd ${__DIR__}/ovn
+mkdir ${__DIR__}/ovn/build
 ./boot.sh
-cd build
-../configure   --with-ovs-source=../../ovs/ --with-ovs-build=../../ovs/build
+cd ${__DIR__}/ovn/build
+../configure   --with-ovs-source=${__DIR__}/ovs/ --with-ovs-build=${__DIR__}/ovs/build
 make -j `grep "processor" /proc/cpuinfo | sort -u | wc -l`
 sudo make install
 

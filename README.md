@@ -24,7 +24,7 @@
 
 ## docker proxy configure  ; docker 代理 配置
 ```shell
-proxy_url=http://your-domain:8018
+proxy_url=http://your-domain:8118
 
 line_number=$(grep -n '\[Service\]' /lib/systemd/system/docker.service | cut -d ':' -f 1 ) && echo $line_number
 sed -i "${line_number}a\Environment=https_proxy=${proxy_url}" /lib/systemd/system/docker.service
@@ -39,6 +39,30 @@ docker info
 
 ```
 
+## proxy tool  代理工具
+```shell
+cat <<EOF | tee proxy.sh
+# your proxy server ip
+ip=proxy.example.com
+#your proxy server ssh key
+keyfile=/key.pem
+
+{
+    ssh -o StrictHostKeyChecking=no \
+    -o ExitOnForwardFailure=yes \
+    -o TCPKeepAlive=yes \
+    -o ServerAliveInterval=15 \
+    -o ServerAliveCountMax=3 \
+    -i $keyfile \
+    -v -CTg \
+    -D  0.0.0.0:8118 \
+    root@$ip
+} || {
+    echo $?
+}
+EOF
+
+```
 
 ## test
 ```shell

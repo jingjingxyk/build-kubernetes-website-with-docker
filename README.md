@@ -44,7 +44,8 @@ docker info
 cat <<EOF | tee proxy.sh
 # your proxy server ip
 ip=proxy.example.com
-#your proxy server ssh key
+
+# your proxy server ssh key
 keyfile=/key.pem
 
 {
@@ -62,6 +63,8 @@ keyfile=/key.pem
 }
 EOF
 
+# note you can use [autossh ] keep ssh live
+apt install -y autossh
 ```
 
 ## test

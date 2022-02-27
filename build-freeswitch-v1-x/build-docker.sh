@@ -1,9 +1,9 @@
 #!/bin/sh
 
-
-TIME=`date "+%Y%m%d%H%M"`
-TIME=`date "+%Y%m%d"`
-VERSION="debian-10-buster-v1.10.x-"${TIME}
+TIME=$(date -u +"%Y%m%dT%H%M%SZ")
+#TIME=`date "+%Y%m%d%H%M"`
+#TIME=`date -u "+%Y%m%dZ"`
+VERSION="debian-11-bullseye-v1.10.x-"${TIME}
 IMAGE="wenba100xie/freeswitch:${VERSION}"
 
 export DOCKER_BUILDKIT=1

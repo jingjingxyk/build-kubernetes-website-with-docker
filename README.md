@@ -24,7 +24,7 @@
 
 ## docker proxy configure  ; docker 代理 配置
 ```shell
-proxy_url=http://your-domain:8118
+proxy_url=http://your-porxy-server-ip:8118
 
 line_number=$(grep -n '\[Service\]' /lib/systemd/system/docker.service | cut -d ':' -f 1 ) && echo $line_number
 sed -i "${line_number}a\Environment=https_proxy=${proxy_url}" /lib/systemd/system/docker.service

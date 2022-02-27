@@ -14,7 +14,7 @@
 
 
 
-## docker use proxy down image  ; 使用代理下载容器镜像
+## docker use proxy download image  ; 使用代理下载容器镜像
 1. docker.io (docker hub公共镜像库)
 2. gcr.io (Google container registry)
 3. k8s.gcr.io (等同于gcr.io/google-containers)

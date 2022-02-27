@@ -63,7 +63,7 @@ keyfile=/key.pem
 }
 EOF
 
-# note you can use [autossh ] keep ssh live
+# note you can use [autossh ] keep ssh live ;你能使用 autossh 保持ssh连接一直存活
 apt install -y autossh
 ```
 

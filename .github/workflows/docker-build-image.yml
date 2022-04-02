@@ -3,7 +3,7 @@ on:
     push:
       branches:
         - dev
-        - release
+        - main
     schedule:
       - cron: '00 19 1 * *'
 jobs:

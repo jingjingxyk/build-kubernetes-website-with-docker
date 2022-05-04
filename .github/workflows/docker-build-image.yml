@@ -39,8 +39,8 @@ jobs:
       run:  sh build-istio-io-wiki.sh
     - name: "clean3 workspace"
       run: sh clean.sh
-    - name: "step-4: build calico  wiki"
-      run:  sh build-calico-docs.sh
+#    - name: "step-4: build calico  wiki"
+#      run:  sh build-calico-docs.sh
 #    - name: "step-5: build nginx-quick  wiki"
 #      run:  sh build-nginx-quick-http3.sh
     - name: "step-6: build ceph  wiki"

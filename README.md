@@ -29,7 +29,7 @@ proxy_url=http://your-porxy-server-ip:8118
 line_number=$(grep -n '\[Service\]' /lib/systemd/system/docker.service | cut -d ':' -f 1 ) && echo $line_number
 sed -i "${line_number}a\Environment=https_proxy=${proxy_url}" /lib/systemd/system/docker.service
 sed -i "${line_number}a\Environment=http_proxy=${proxy_url}" /lib/systemd/system/docker.service
-sed -i "${line_number}a\Environment=\"NO_PROXY=localhost,127.0.0.1,192.168.0.1/24\"" /lib/systemd/system/docker.service
+sed -i "${line_number}a\Environment=\"NO_PROXY=localhost,127.0.0.0/8,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,.aliyuncs.com\"" /lib/systemd/system/docker.service
 
 systemctl daemon-reload
 systemctl restart docker

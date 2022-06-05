@@ -3,7 +3,7 @@ set -eux
 
 Day=`date "+%Y%m%d"`
 
-sudo apt install -y git curl wget sudo python3 python3-pip
+sudo apt install -y git curl wget sudo python3 python3-pip unzip zip
 
 sudo wget -O main.zip  https://github.com/ceph/ceph/archive/refs/heads/main.zip
 sudo unzip main.zip

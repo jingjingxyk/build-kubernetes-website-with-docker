@@ -33,8 +33,8 @@ jobs:
 #      run: sh clean.sh
 #    - name: "step-9: build ovn"
 #      run: sh build-ovn.sh
-    - name: "step-8: build developer.chrome.com"
-      run: sh build-developer-chrome-com.sh
+#    - name: "step-8: build developer.chrome.com"
+#      run: sh build-developer-chrome-com.sh
     - name: "step-3: build istio  wiki"
       run:  sh build-istio-io-wiki.sh
 #    - name: "clean3 workspace"

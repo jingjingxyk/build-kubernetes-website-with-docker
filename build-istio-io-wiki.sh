@@ -6,7 +6,7 @@ day=`date "+%Y%m%d"`
 sudo apt install -y git curl wget sudo python3 python3-pip
 
 
-git clone https://github.com/istio/istio.io.git
+git clone https://github.com/istio/istio.io.git --depth=1cd
 
 
 #istio-io website

@@ -22,10 +22,10 @@ EOF
 sudo git clone --depth=1 --progress  https://github.com/ceph/ceph.git
 cd ${__DIR__}/ceph
 
-sudo sh ./install-deps.sh
+sudo bash ./install-deps.sh
 sudo git submodule update --init --recursive
 
-sudo  sh -c '/bin/echo -e "y\ny\n"' | sudo apt-get install `cat doc_deps.deb.txt`
+sudo  bash -c '/bin/echo -e "y\ny\n"' | sudo apt-get install `cat doc_deps.deb.txt`
 sudo  admin/build-doc
 
 ls  -lh  ./build-doc

@@ -43,8 +43,8 @@ jobs:
 #      run:  sh build-calico-docs.sh
 #    - name: "step-5: build nginx-quick  wiki"
 #      run:  sh build-nginx-quick-http3.sh
-    - name: "step-6: build ceph  wiki"
-      run: sh build-ceph-io-wiki.sh
+#    - name: "step-6: build ceph  wiki"
+#      run: sh build-ceph-io-wiki.sh
 #    - name: "step-7: build freeswitch-v1-x"
 #      run: sh build-freeswitch-v1-x.sh
 #    - name: "clean2 workspace"
